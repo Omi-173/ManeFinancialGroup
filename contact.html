@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mane Insurance</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+    
+    <div class="container-fluid topbar px-0 px-lg-4 bg-light py-2 d-none d-lg-block">
+        <div class="container">
+            <div class="row gx-0 align-items-center">
+                <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                    <div class="d-flex flex-wrap">
+                        <div class="border-end border-primary pe-3">
+                            <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                        </div>
+                        <div class="ps-3">
+                            <a href="mailto:info@maneinsurance.ca" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>info@maneinsurance.ca</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-flex justify-content-end">
+                        <div class="d-flex border-end border-primary pe-3 align-items-center">
+                            <a class="btn p-0 text-primary me-3" href="https://wa.me/+16474486229" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a class="btn p-0 text-primary me-3" href="https://www.facebook.com/profile.php?id=100090433074108"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn p-0 text-primary me-0" href="https://www.linkedin.com/in/bhupendramane/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <!-- Privacy Policy link with hover effect -->
+                        <div class="ms-3">
+                            <a href="terms.html" class="text-muted small privacy-policy-link">Terms and Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- Navbar & Hero Start -->
+<div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light"> 
+            <a href="img/log" class="navbar-brand p-0">
+                <img src="img/logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-0 mx-lg-auto">
+                    <a href="index.html" class="nav-item nav-link ">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="Insurances.html" class="nav-item nav-link">Insurances</a>
+                    <a href="Investment.html" class="nav-item nav-link">Investment</a>
+                    <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                    <div class="nav-btn px-3">
+                        <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Replaced "Call to Our Experts" section with "Add Contact" button -->
+            <div class="d-none d-xl-flex flex-shrink-0 ps-4">
+                <button id="addContactBtn" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
+                    <i class="fa fa-user-plus fa-lg"></i> Add Contact
+                </button>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- Script for "Add Contact" Button Functionality -->
+<script>
+  document.getElementById('addContactBtn').addEventListener('click', function() {
+    const vCard = `
+      BEGIN:VCARD
+      VERSION:3.0
+      FN:Bhupendra Mane
+      TEL:6474486229
+      END:VCARD
+    `;
+    const blob = new Blob([vCard], { type: 'text/vcard' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'contact.Bhupendra-Mane.vcf';  // Clear file name for clarity
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+</script>
+    
+    <!-- Modal Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center bg-primary">
+                    <div class="input-group w-75 mx-auto d-flex">
+                        <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                        <span id="search-icon-1" class="btn bg-light border nput-group-text p-3"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Search End -->
+    
+    
+       <!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s" style="position: relative; padding: 80px 0; color: white;">
+    <!-- Background Video (optional) -->
+    <video autoplay muted loop id="header-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="path-to-your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container text-center">
+        <h1 class="display-3 mb-4 animated slideInDown" style="font-size: 3.5rem; font-weight: 700; animation: slideInDown .5s ease-out;">Contact</h1>
+        <nav aria-label="breadcrumb" class="animated slideInUp" style="animation-delay: 1s;">
+            <ol class="breadcrumb justify-content-center mb-0" style=" padding: 10px 20px; border-radius: 20px;">
+                <li class="breadcrumb-item">
+                    <a href="index.html" style="color: rgba(160, 158, 234, 0.7); font-weight: bold; transition: color 0.3s; opacity: 0.8;">
+                        Home
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" style="color: rgba(255, 255, 255, 0.7); font-weight: bold; opacity: 0.8;">Contact</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Add some custom CSS for animations -->
+<style>
+    /* Keyframe for SlideInDown animation */
+    @keyframes slideInDown {
+        0% { transform: translateY(-100%); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Hover effect for breadcrumb links */
+    .breadcrumb-item a:hover {
+        color: #f7c748; /* Gold color for hover */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        opacity: 1; /* Make the link fully visible on hover */
+    }
+</style>
+
+    
+        
+       
+
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Contact</p>
+                    <h1 class="display-5 mb-4">If You Have Any Query, Please Contact Us</h1>
+                    <p class="mb-4">Feel free to ask for details, don't save any questions!.</p>
+                    <form action="https://api.web3forms.com/submit" method="POST">
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="be233ad0-1ba1-47ee-be4d-c080233da15e">
+
+    <div class="row g-3">
+        <!-- Name Field -->
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                <label for="name">Your Name</label>
+            </div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                <label for="email">Your Email</label>
+            </div>
+        </div>
+
+        <!-- Subject Field -->
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                <label for="subject">Subject</label>
+            </div>
+        </div>
+
+        <!-- Message Field -->
+        <div class="col-12">
+            <div class="form-floating">
+                <textarea class="form-control" id="message" name="message" placeholder="Leave a message here" style="height: 100px" required></textarea>
+                <label for="message">Message</label>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-12">
+            <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+        </div>
+    </div>
+</form>
+
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
+                    <div class="position-relative rounded overflow-hidden h-100">
+                        <iframe class="position-relative w-100 h-100"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.336461152097!2d-79.5801448!3d43.599535599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b47c04c82b9c9%3A0x7ecdca3d38e5b577!2s1185%20Queensway%20E%20Suite%207%2C%20Level%201%2C%20Mississauga%2C%20ON%20L4Y%201S1%2C%20Canada!5e0!3m2!1sen!2sin!4v1736529693139!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        frameborder="0" style="min-height: 450px; border:0;" allowfullscreen="" aria-hidden="false"
+                        tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Our Office</h4>
+                    <i class="fa fa-map-marker-alt me-3"></i>
+                    <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer">
+                        Address
+                    </a>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>647-448-6229</p>
+                    <p class="mb-2">
+                        <i class="fa fa-envelope me-3"></i>
+                        <a href="mailto:info@maneinsurance.ca">info@maneinsurance.ca</a>
+                    </p>
+                    
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100090433074108"><i class="fab fa-facebook-f"></i></a>
+                
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://www.linkedin.com/in/bhupendramane/"><i class="fab fa-linkedin-in"></i></a>
+                
+                        <!-- WhatsApp icon added -->
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://wa.me/+16474486229" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Services</h4>
+                    <!-- <a class="btn btn-link" href="service.html">Financial Planning</a>
+                    <a class="btn btn-link" href="service.html">Cash Investment</a>
+                    <a class="btn btn-link" href="service.html">Financial Consultancy</a>
+                    <a class="btn btn-link" href="service.html">Business Loans</a>
+                    <a class="btn btn-link" href="service.html">Business Analysis</a> -->
+                    <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
+                    <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
+                    <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
+                    <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
+                    <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
+                    <a class="btn btn-link" href="Insurances.html">Parents Plan (Retirement)</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home</a>
+                    <a class="btn btn-link" href="about.html">About</a>
+                    <a class="btn btn-link" href="investment.html">Investment</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    <a class="btn btn-link" href="Insurances.html">Our Services</a>
+                    <a class="btn btn-link" href="terms.html">Terms & Condition</a>
+
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Newsletter</h4>
+                    <p>Signup for our newsletter to get the latest news, updates and special offers in your inbox.</p>
+                    <div class="position-relative w-100">
+                        <input class="form-control bg-white border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#"> Mane Financial Group Inc.</a>, All Right Reserved.
+                </div>
+                <!-- <div class="col-md-6 text-center text-md-end">
+                    /*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                   
+                </div> 
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mane Insurance</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+   <!-- Spinner Start -->
+   <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<!-- Spinner End -->
+
+<div class="container-fluid topbar px-0 px-lg-4 bg-light py-2 d-none d-lg-block">
+    <div class="container">
+        <div class="row gx-0 align-items-center">
+            <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                <div class="d-flex flex-wrap">
+                    <div class="border-end border-primary pe-3">
+                        <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                    </div>
+                    <div class="ps-3">
+                        <a href="mailto:info@maneinsurance.ca" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>info@maneinsurance.ca</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-flex justify-content-end">
+                    <div class="d-flex border-end border-primary pe-3 align-items-center">
+                        <a class="btn p-0 text-primary me-3" href="https://wa.me/+16474486229" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a class="btn p-0 text-primary me-3" href="https://www.facebook.com/profile.php?id=100090433074108"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn p-0 text-primary me-0" href="https://www.linkedin.com/in/bhupendramane/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <!-- Privacy Policy link with hover effect -->
+                    <div class="ms-3">
+                        <a href="terms.html" class="text-muted small privacy-policy-link">Terms and Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Navbar & Hero Start -->
+<div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light"> 
+            <a href="img/log" class="navbar-brand p-0">
+                <img src="img/logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-0 mx-lg-auto">
+                    <a href="index.html" class="nav-item nav-link ">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="Insurances.html" class="nav-item nav-link active">Insurances</a>
+                    <a href="Investment.html" class="nav-item nav-link">Investment</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <div class="nav-btn px-3">
+                        <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Replaced "Call to Our Experts" section with "Add Contact" button -->
+            <div class="d-none d-xl-flex flex-shrink-0 ps-4">
+                <button id="addContactBtn" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
+                    <i class="fa fa-user-plus fa-lg"></i> Add Contact
+                </button>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- Script for "Add Contact" Button Functionality -->
+<script>
+  document.getElementById('addContactBtn').addEventListener('click', function() {
+    const vCard = `
+      BEGIN:VCARD
+      VERSION:3.0
+      FN:Bhupendra Mane
+      TEL:6474486229
+      END:VCARD
+    `;
+    const blob = new Blob([vCard], { type: 'text/vcard' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'contact.Bhupendra-Mane.vcf';  // Clear file name for clarity
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+</script>
+
+<!-- Modal Search Start -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center bg-primary">
+                <div class="input-group w-75 mx-auto d-flex">
+                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                    <span id="search-icon-1" class="btn bg-light border nput-group-text p-3"><i class="fa fa-search"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Search End -->
+
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s" style="position: relative; padding: 80px 0; color: white;">
+    <!-- Background Video -->
+    <video autoplay muted loop id="header-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="path-to-your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container text-center">
+        <h1 class="display-3 mb-4 animated slideInDown" style="font-size: 3.5rem; font-weight: 700; animation: slideInDown .5s ease-out;">Insurance Services</h1>
+        <nav aria-label="breadcrumb" class="animated slideInUp" style="animation-delay: 1s;">
+            <ol class="breadcrumb justify-content-center mb-0" style="padding: 10px 20px;">
+                <li class="breadcrumb-item">
+                    <a href="index.html" style="color: rgba(160, 158, 234, 0.7); font-weight: bold; transition: color 0.3s; opacity: 0.8;">
+                        Home
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" style="color: rgba(4, 3, 43, 0.7); font-weight: bold; opacity: 0.8;">Services</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Add some custom CSS for animations -->
+<style>
+    /* Keyframe for SlideInDown animation */
+    @keyframes slideInDown {
+        0% { transform: translateY(-100%); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Hover effect for breadcrumb links */
+    .breadcrumb-item a:hover {
+        color: #f7c748; /* Gold color for hover */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        opacity: 1; /* Make the link fully visible on hover */
+    }
+</style>
+
+
+<!-- Add some custom CSS for animations -->
+<style>
+    /* Keyframe for SlideInDown animation */
+    @keyframes slideInDown {
+        0% { transform: translateY(-100%); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
+   
+</style>
+
+
+
+    <!-- Service Start -->
+<div class="container-fluid service py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+    <h4 class="text-uppercase text-primary fw-bold mb-3" style="letter-spacing: 2px;">Our Services</h4>
+    <h1 class="display-4 mb-4 fw-bold" style="color: #333; text-transform: capitalize;">We Provide the Best Services</h1>
+    <p class="mb-0 text-muted" style="font-size: 1.1rem; line-height: 1.8;">
+        We offer tailored insurance solutions to ensure financial security, peace of mind, and a future of stability and growth.
+    </p>
+</div>
+
+<div class="row g-3 justify-content-center">
+    <!-- First Section: Life Insurance -->
+    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="service-item" onclick="toggleCallback(event)">
+            <div class="service-img">
+                <img src="img/insurance-5238829_1280.jpg" class="img-fluid rounded-top w-100" alt="Life Insurance">
+            </div>
+            <div class="service-content p-4">
+                <div class="service-content-inner">
+                    <a href="#" class="d-inline-block h4 mb-4 fw-bold">Life Insurance</a>
+                    <p class="mb-3 short-text">
+                        Term & Permanent life insurance for financial security & peace of mind.
+                    </p>
+                    <p class="mb-3 full-text" style="display: none;">
+                        Term insurance is a life insurance policy that provides coverage for a specified period, 
+                        typically 10, 20, or 30 years. It is ideal for individuals with financial responsibilities, 
+                        such as mortgages, dependents, or business commitments,
+                         offering affordable and temporary protection during essential stages of life.
+                    </p>
+                    <p><i class="fa fa-check text-primary me-3"></i> Enjoy a stress-free stay</p>
+                    <p><i class="fa fa-check text-primary me-3"></i> Benefits for your dependents</p>
+                    <p><i class="fa fa-check text-primary me-3"></i> 24-hour customer support</p>
+                    <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
+                        Read more
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Section: Super Visa and Visitor Insurance -->
+    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
+        <div class="service-item" onclick="toggleCallback(event)">
+            <div class="service-img">
+                <img src="img/37213.jpg" class="img-fluid rounded-top w-100" alt="Super Visa Insurance">
+            </div>
+            <div class="service-content p-4">
+                <div class="service-content-inner">
+                    <a href="#" class="d-inline-block h4 mb-4">Super Visa and Visitor Insurance</a>
+                    <p class="mb-4 short-text">
+                        Comprehensive insurance for long-term visits & tourist stays.
+                    </p>
+                    <p class="mb-4 full-text" style="display: none;">
+                        A Super Visa enables parents and grandparents of Canadian citizens or permanent residents to stay in Canada for up to two years at a time, with a validity of up to 10 years. 
+                        The visa requires proof of financial support from the sponsor and mandatory medical insurance coverage to ensure the applicant’s health during their stay.
+                    </p>
+                    <p><i class="fa fa-check text-primary me-3"></i> Best Digital Experience</p>
+                    <p><i class="fa fa-check text-primary me-3"></i> Self-reliant Insurance Broker</p>
+                    <p><i class="fa fa-check text-primary me-3"></i> Your Coverage, Your Way</p>
+                    <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
+                        Read more
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third Section: Critical Illness Insurance -->
+    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+        <div class="service-item" onclick="toggleCallback(event)">
+            <div class="service-img">
+                <img src="img/3979003.jpg" class="img-fluid rounded-top w-100" alt="Critical Illness Insurance">
+            </div>
+            <div class="service-content p-4">
+                <div class="service-content-inner">
+                    <a href="#" class="d-inline-block h4 mb-4">Critical Illness Insurance</a>
+                    <p class="mb-4 short-text">
+                        Coverage for life-threatening conditions like heart attack and cancer.
+                    </p>
+                    <p class="mb-4 full-text" style="display: none;">
+                        Critical illness insurance provides a lump sum, tax-free payment if you're diagnosed with a major health condition, such as cancer,
+                         heart attack, or stroke.
+                         This coverage helps with medical expenses, lifestyle changes, and other financial needs during a challenging recovery period.
+                    </p>
+                    <p><i class="fa fa-check text-primary me-3"></i> Seamless Digital Experience</p>
+                    <p><i class="fa fa-check text-primary me-3"></i> Self-Driven Insurance Broker</p>
+                    <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
+                        Read more
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fourth Section: Disability Insurance -->
+<div class="container py-5">
+    <div class="row">
+        <!-- First Service Block -->
+        <div class="col-md-4 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="1s">
+            <div class="service-item" onclick="toggleCallback(event)">
+                <div class="service-img">
+                    <img src="img/10476779.jpg" class="img-fluid rounded-top w-100" alt="Disability Insurance">
+                </div>
+                <div class="service-content p-4">
+                    <div class="service-content-inner">
+                        <a href="#" class="d-inline-block h4 mb-4">Disability Insurance</a>
+                        <p class="mb-4 short-text">Protect your income in case of unexpected illness or injury.</p>
+                        <p class="mb-4 full-text" style="display: none;">
+                            Disability insurance is designed to provide financial protection for individuals and their families if they are unable to work due to illness, injury,
+                             or disability.
+                             It offers income replacement to help cover living expenses and maintain financial stability during periods of incapacitation.
+                        </p>
+                        <p><i class="fa fa-check text-primary me-3"></i> Benefits for your dependents</p>
+                        <p><i class="fa fa-check text-primary me-3"></i> Coverage for Medical Expenses</p>
+                        <p><i class="fa fa-check text-primary me-3"></i> Flexible Benefit Payouts</p>
+                        <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fifth Section: Health & Dental Insurance -->
+        <div class="col-md-4 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="1s">
+            <div class="service-item" onclick="toggleCallback(event)">
+                <div class="service-img">
+                    <img src="img/4587.jpg" class="img-fluid rounded-top w-100" alt="Health & Dental Insurance">
+                </div>
+                <div class="service-content p-4">
+                    <div class="service-content-inner">
+                        <a href="#" class="d-inline-block h4 mb-4">Health & Dental Insurance</a>
+                        <p class="mb-3 short-text">Ensuring coverage for health services, prescriptions & dental care.</p>
+                        <p class="mb-3 full-text" style="display: none;">
+                            Health and dental coverage in Ontario includes a range of services such as prescription medications,
+                             medical treatments, and dental care. It helps reduce the financial burden of essential healthcare needs,
+                             ensuring access to necessary treatments and preventive care for individuals and families.
+                        </p>
+                        <p><i class="fa fa-check text-primary me-3"></i> Seamless Digital Experience</p>
+                        <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sixth Section: Parents Plan (Retirement) -->
+        <div class="col-md-4 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="1s">
+            <div class="service-item" onclick="toggleCallback(event)">
+                <div class="service-img">
+                    <img src="img/img-retirement.png" class="img-fluid rounded-top w-100" alt="Parents Plan (Retirement)">
+                </div>
+                <div class="service-content p-4">
+                    <div class="service-content-inner">
+                        <a href="#" class="d-inline-block h4 mb-4">Parents Plan (Retirement)</a>
+                        <p class="mb-3 short-text">Insured retirement strategy to secure financial future.</p>
+                        <p class="mb-3 full-text" style="display: none;">
+                            Parents Plan is an insured retirement strategy designed to meet your dual need for long-term financial security and peace of mind. It provides a structured approach to retirement planning,
+                             ensuring that both you and your family are financially protected in the future.
+                        </p>
+                        <p><i class="fa fa-check text-primary me-3"></i> Your Coverage, Your Way</p>
+                        <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Callback Modal -->
+<div class="modal" id="callbackModal" tabindex="-1" aria-labelledby="callbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="callbackModalLabel">Contact Us</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container pt-5">
+              <<form action="https://api.web3forms.com/submit" method="POST">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="be233ad0-1ba1-47ee-be4d-c080233da15e">
+            
+                <div class="row g-3">
+                    <!-- Name Field -->
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                    </div>
+            
+                    <!-- Email Field -->
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                    </div>
+            
+                    <!-- Subject Field -->
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                    </div>
+            
+                    <!-- Message Field -->
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea class="form-control" id="message" name="message" placeholder="Leave a message here" style="height: 100px" required></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                    </div>
+            
+                    <!-- Submit Button -->
+                    <div class="col-12">
+                        <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- JavaScript to Handle Clicks -->
+  <script>
+      function toggleCallback(event) {
+          // Only show modal if clicked anywhere but the "Read more" button
+          if (!event.target.closest('.read-more-btn')) {
+              const callbackModal = new bootstrap.Modal(document.getElementById('callbackModal'));
+              callbackModal.show();  // Show the callback modal
+          }
+      }
+  
+      function toggleText(event, btn) {
+          event.stopPropagation(); // Prevent triggering showFullContent()
+          let content = btn.closest('.service-content-inner').querySelector('.full-text');
+  
+          if (content.style.display === "none") {
+              content.style.display = "block";
+              setTimeout(() => { content.style.opacity = "1"; }, 50);
+              btn.textContent = "Read less";
+          } else {
+              content.style.opacity = "0";
+              setTimeout(() => { content.style.display = "none"; }, 300);
+              btn.textContent = "Read more";
+          }
+      }
+  
+      function showFullContent(event, element) {
+          if (event.target.classList.contains("read-more-btn")) return; // Ignore clicks on Read More button
+  
+          let content = element.querySelector('.full-text');
+  
+          content.style.display = "block";
+          setTimeout(() => { content.style.opacity = "1"; }, 50);
+      }
+  </script>
+
+
+            <!-- Parents Plan is an insured retirement strategy that will address your dual need for insurance & retirement income supplement. The power of compounding works by growing your wealth exponentially and investing at a young age since time has the power in the formula. The immediate need for protection on outstanding debts such as mortgages and other loans and the need to provide for the family in the case of sudden loss is best addressed by life insurance. This plan ensures long-term financial security for both retirement and unexpected events. -->
+        
+
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+
+
+
+
+
+
+
+<style>
+    /* Method 1: Adding margin-top */
+    .service {
+        margin-top: 5px;  /* Adjust for desired gap */
+    }
+  
+    /* Method 2: Adding padding-top */
+    .container-fluid.service {
+        padding-top: 50px;  /* Adjust for desired gap */
+    }
+  </style>
+  
+    
+
+
+
+    
+
+
+    
+
+
+
+
+    
+
+
+    
+
+
+    <!-- Callback Start -->
+    <!-- <div class="container-fluid callback mt-5 py-5">
+        <div class="container pt-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="bg-white border rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                            <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Get In Touch</p>
+                            <h1 class="display-5 mb-5">Request A Call-Back</h1>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="mail" placeholder="Your Email">
+                                    <label for="mail">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="mobile" placeholder="Your Mobile">
+                                    <label for="mobile">Your Mobile</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Submit Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Callback End -->
+        
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Our Office</h4>
+                    <i class="fa fa-map-marker-alt me-3"></i>
+                    <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer">
+                        Address
+                    </a>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>647-448-6229</p>
+                    <p class="mb-2">
+                        <i class="fa fa-envelope me-3"></i>
+                        <a href="mailto:info@maneinsurance.ca">info@maneinsurance.ca</a>
+                    </p>
+                    
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100090433074108"><i class="fab fa-facebook-f"></i></a>
+                
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://www.linkedin.com/in/bhupendramane/"><i class="fab fa-linkedin-in"></i></a>
+                
+                        <!-- WhatsApp icon added -->
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://wa.me/+16474486229" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Insurance Services</h4>
+                    <a class="btn btn-link" href="javascript:void(0);" onclick="showInsuranceContent('life-insurance')">Life Insurance (Life and Permanent)</a>
+
+                    <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
+                    <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
+                    <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
+                    <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
+                    <a class="btn btn-link" href="Insurances.html">Parents Plan (Retirement)</a>
+                  </div>
+            
+                  
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home</a>
+                    <a class="btn btn-link" href="about.html">About</a>
+                    <a class="btn btn-link" href="investment.html">Investment</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    <a class="btn btn-link" href="Insurances.html">Our Services</a>
+                    <a class="btn btn-link" href="terms.html">Terms & Condition</a>
+
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Newsletter</h4>
+                    <p>Signup for our newsletter to get the latest news, updates and special offers in your inbox.</p>
+                    <div class="position-relative w-100">
+                        <input class="form-control bg-white border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#"> Mane Financial Group Inc.</a>, All Right Reserved.
+                </div>
+                <!-- <div class="col-md-6 text-center text-md-end">
+                    /*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                   
+                </div> 
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
