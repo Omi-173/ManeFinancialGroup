@@ -124,18 +124,28 @@
 <!-- Navbar & Hero End -->
 
     <!-- Page Header Start -->
-    <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container">
-            <h1 class="display-3 mb-4 animated slideInDown">Terms and Conditions</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Terms and Conditions</li>
-                </ol>
-            </nav>
-        </div>
+<div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s" style="position: relative; padding: 80px 0; color: white;">
+    <!-- Background Video -->
+    <video autoplay muted loop id="header-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="path-to-your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container text-center">
+        <h1 class="display-3 mb-4 animated slideInDown" style="font-size: 3.5rem; font-weight: 700; animation: slideInDown .5s ease-out;">Terms & Conditions</h1>
+        <nav aria-label="breadcrumb" class="animated slideInUp" style="animation-delay: 1s;">
+            <ol class="breadcrumb justify-content-center mb-0" style="padding: 10px 20px;">
+                <li class="breadcrumb-item">
+                    <a href="index.html" style="color: rgba(160, 158, 234, 0.7); font-weight: bold; transition: color 0.3s; opacity: 0.8;">
+                        Home
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" style="color: rgba(4, 3, 43, 0.7); font-weight: bold; opacity: 0.8;">Terms & Conditions</li>
+            </ol>
+        </nav>
     </div>
-    <!-- Page Header End -->
+</div>
+<!-- Page Header End -->
 
 
     <!-- Terms and Conditions Start -->
