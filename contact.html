@@ -83,23 +83,28 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-0 mx-lg-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="index.html" class="nav-item nav-link ">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="Insurances.html" class="nav-item nav-link">Insurances</a>
                     <a href="Investment.html" class="nav-item nav-link">Investment</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    <div class="nav-btn px-3">
-                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Add contacts</button>
+                    <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                    <div class="nav-btn px-3 d-flex justify-content-center justify-content-lg-end">
+                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-1 px-3">
+                            <i class="fa fa-user-plus"></i> Add Contact
+                        </button>
                     </div>
-                </div>
+                    
+                    
+                    
             </div>
             <!-- Replaced "Call to Our Experts" section with "Get a Quote" button -->
             <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
+                <a href="contact.html" class="btn btn-primary rounded-pill py-1 px-3 ms-3 flex-shrink-0">
                     Get a Quote
                 </a>
             </div>
         </nav>
+        
     </div>
 </div>
 
@@ -156,7 +161,7 @@
         <nav aria-label="breadcrumb" class="animated slideInUp" style="animation-delay: 1s;">
             <ol class="breadcrumb justify-content-center mb-0" style=" padding: 10px 20px; border-radius: 20px;">
                 <li class="breadcrumb-item">
-                    <a href="index.html" style="color: rgba(160, 158, 234, 0.7); font-weight: bold; transition: color 0.3s; opacity: 0.8;">
+                    <a href="index.html" style="color: rgba(88, 83, 212, 0.7); font-weight: bold; transition: color 0.3s; opacity: 0.8;">
                         Home
                     </a>
                 </li>
@@ -242,11 +247,19 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
                     <div class="position-relative rounded overflow-hidden h-100">
-                        <iframe class="position-relative w-100 h-100"
-                        <iframe src=" https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.53024476209!2d-80.28198112435993!3d43.345018072309436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c77871e423ef5%3A0x72d18647b7b75b3!2s71%20Slater%20St%2C%20Cambridge%2C%20ON%20N1R%200C4%2C%20Canada!5e0!3m2!1sen!2sin!4v1738960057584!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                        frameborder="0" style="min-height: 450px; border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></iframe>
+                        <iframe 
+                            class="position-relative w-100 h-100" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.53024476209!2d-80.28198112435993!3d43.345018072309436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c77871e423ef5%3A0x72d18647b7b75b3!2s71%20Slater%20St%2C%20Cambridge%2C%20ON%20N1R%200C4%2C%20Canada!5e0!3m2!1sen!2sin!4v1738960057584!5m2!1sen!2sin" 
+                            width="600" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            tabindex="0">
+                        </iframe>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -260,15 +273,28 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Our Office</h4>
-                    <i class="fa fa-map-marker-alt me-3"></i>
-                    <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer">
-                        Address
-                    </a>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>647-448-6229</p>
+
+                    <p class="mb-2">
+                        <i class="fa fa-map-marker-alt me-3"></i>
+                        <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+                            Address
+                        </a>
+                    </p>
+                    
+                    <p class="mb-2">
+                        <i class="fa fa-phone-alt me-3"></i>
+                        <a href="tel:6474486229" style="color: inherit; text-decoration: none;">
+                            647-448-6229
+                        </a>
+                    </p>
+                    
                     <p class="mb-2">
                         <i class="fa fa-envelope me-3"></i>
-                        <a href="mailto:info@maneinsurance.ca">info@maneinsurance.ca</a>
+                        <a href="mailto:info@maneinsurance.ca" style="color: inherit; text-decoration: none;">
+                            info@maneinsurance.ca
+                        </a>
                     </p>
+                    
                     
                     <div class="d-flex pt-2">
                         <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100090433074108"><i class="fab fa-facebook-f"></i></a>
@@ -283,19 +309,18 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Services</h4>
-                    <!-- <a class="btn btn-link" href="service.html">Financial Planning</a>
-                    <a class="btn btn-link" href="service.html">Cash Investment</a>
-                    <a class="btn btn-link" href="service.html">Financial Consultancy</a>
-                    <a class="btn btn-link" href="service.html">Business Loans</a>
-                    <a class="btn btn-link" href="service.html">Business Analysis</a> -->
-                    <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
+                    <h4 class="text-white mb-4">Insurance Services</h4>
+            
+
+                <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
                 <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
                 <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
                 <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
                 <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
                 <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
-                </div>
+                  </div>
+            
+                  
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Quick Links</h4>
                     <a class="btn btn-link" href="index.html">Home</a>
@@ -306,6 +331,7 @@
                     <a class="btn btn-link" href="terms.html">Terms & Condition</a>
 
                 </div>
+                
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Insurance Tips</h4>
                     <p>Stay informed with valuable insurance insights and financial tips to secure your future.</p>
