@@ -83,23 +83,28 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-0 mx-lg-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="index.html" class="nav-item nav-link ">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="Insurances.html" class="nav-item nav-link">Insurances</a>
-                    <a href="Investment.html" class="nav-item nav-link">Investment</a>
+                    <a href="Investment.html" class="nav-item nav-link acitve">Investment</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    <div class="nav-btn px-3">
-                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Add contacts</button>
+                    <div class="nav-btn px-3 d-flex justify-content-center justify-content-lg-end">
+                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-1 px-3">
+                            <i class="fa fa-user-plus"></i> Add Contact
+                        </button>
                     </div>
-                </div>
+                    
+                    
+                    
             </div>
             <!-- Replaced "Call to Our Experts" section with "Get a Quote" button -->
             <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
+                <a href="contact.html" class="btn btn-primary rounded-pill py-1 px-3 ms-3 flex-shrink-0">
                     Get a Quote
                 </a>
             </div>
         </nav>
+        
     </div>
 </div>
 
@@ -184,7 +189,7 @@ _strk.push(function() {
         <nav aria-label="breadcrumb" class="animated slideInUp" style="animation-delay: 1s;">
             <ol class="breadcrumb justify-content-center mb-0" style="padding: 10px 20px; border-radius: 20px;">
                 <li class="breadcrumb-item">
-                    <a href="index.html" style="color: rgba(160, 158, 234, 0.7); font-weight: bold; transition: color 0.3s; opacity: 0.8;">
+                    <a href="index.html" style="color: rgba(88, 83, 212, 0.7); font-weight: bold; transition: color 0.3s; opacity: 0.8;">
                         Home
                     </a>
                 </li>
@@ -767,15 +772,28 @@ _strk.push(function() {
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-4">Our Office</h4>
-                <i class="fa fa-map-marker-alt me-3"></i>
-                <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer">
-                    Address
-                </a>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>647-448-6229</p>
+
+                <p class="mb-2">
+                    <i class="fa fa-map-marker-alt me-3"></i>
+                    <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+                        Address
+                    </a>
+                </p>
+                
+                <p class="mb-2">
+                    <i class="fa fa-phone-alt me-3"></i>
+                    <a href="tel:6474486229" style="color: inherit; text-decoration: none;">
+                        647-448-6229
+                    </a>
+                </p>
+                
                 <p class="mb-2">
                     <i class="fa fa-envelope me-3"></i>
-                    <a href="mailto:info@maneinsurance.ca">info@maneinsurance.ca</a>
+                    <a href="mailto:info@maneinsurance.ca" style="color: inherit; text-decoration: none;">
+                        info@maneinsurance.ca
+                    </a>
                 </p>
+                
                 
                 <div class="d-flex pt-2">
                     <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100090433074108"><i class="fab fa-facebook-f"></i></a>
@@ -791,21 +809,19 @@ _strk.push(function() {
             
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-4">Insurance Services</h4>
-                <!-- <a class="btn btn-link" href="service.html">Financial Planning</a>
-                <a class="btn btn-link" href="service.html">Cash Investment</a>
-                <a class="btn btn-link" href="service.html">Financial Consultancy</a>
-                <a class="btn btn-link" href="service.html">Business Loans</a>
-                <a class="btn btn-link" href="service.html">Business Analysis</a> -->
-                <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
-                <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
-                <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
-            </div>
+        
+
+            <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
+            <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
+            <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
+            <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
+            <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
+            <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
+              </div>
+        
+              
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-4">Quick Links</h4>
-                <!-- <a class="btn btn-link" href="">About Us</a> -->
                 <a class="btn btn-link" href="index.html">Home</a>
                 <a class="btn btn-link" href="about.html">About</a>
                 <a class="btn btn-link" href="investment.html">Investment</a>
@@ -814,15 +830,16 @@ _strk.push(function() {
                 <a class="btn btn-link" href="terms.html">Terms & Condition</a>
 
             </div>
+            
             <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Insurance Tips</h4>
-                    <p>Stay informed with valuable insurance insights and financial tips to secure your future.</p>
-                    <ul class="list-unstyled">
-                        <li><a class="text-white" href="contact.html">How to choose the right policy</a></li>
-                        <li><a class="text-white" href="contact.html">Understanding premiums & coverage</a></li>
-                        <li><a class="text-white" href="contact.html">Saving money on insurance</a></li>
-                    </ul>
-                </div>
+                <h4 class="text-white mb-4">Insurance Tips</h4>
+                <p>Stay informed with valuable insurance insights and financial tips to secure your future.</p>
+                <ul class="list-unstyled">
+                    <li><a class="text-white" href="contact.html">How to choose the right policy</a></li>
+                    <li><a class="text-white" href="contact.html">Understanding premiums & coverage</a></li>
+                    <li><a class="text-white" href="contact.html">Saving money on insurance</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
