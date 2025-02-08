@@ -46,7 +46,7 @@
                 <div class="col-lg-8 text-center text-lg-start mb-lg-0">
                     <div class="d-flex flex-wrap">
                         <div class="border-end border-primary pe-3">
-                            <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                            <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
                         </div>
                         <div class="ps-3">
                             <a href="mailto:info@maneinsurance.ca" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>info@maneinsurance.ca</a>
@@ -83,29 +83,29 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-0 mx-lg-auto">
-                    <a href="index.html" class="nav-item nav-link ">Home</a>
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="Insurances.html" class="nav-item nav-link">Services</a>
+                    <a href="Insurances.html" class="nav-item nav-link">Insurances</a>
                     <a href="Investment.html" class="nav-item nav-link">Investment</a>
-                    <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <div class="nav-btn px-3">
-                        <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Get a Quote</a>
+                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Add contacts</button>
                     </div>
                 </div>
             </div>
-            <!-- Replaced "Call to Our Experts" section with "Add Contact" button -->
+            <!-- Replaced "Call to Our Experts" section with "Get a Quote" button -->
             <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                <button id="addContactBtn" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
-                    <i class="fa fa-user-plus fa-lg"></i> Add Contact
-                </button>
+                <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
+                    Get a Quote
+                </a>
             </div>
         </nav>
     </div>
 </div>
 
-<!-- Script for "Add Contact" Button Functionality -->
+<!-- Script for "Get a Quote" Button Functionality -->
 <script>
-  document.getElementById('addContactBtn').addEventListener('click', function() {
+  document.getElementById('getQuoteBtn').addEventListener('click', function() {
     const vCard = `
       BEGIN:VCARD
       VERSION:3.0
@@ -117,7 +117,7 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'contact.Bhupendra-Mane.vcf';  // Clear file name for clarity
+    a.download = 'contact.Bhupendra-Mane.vcf';
     a.click();
     URL.revokeObjectURL(url);
   });
@@ -243,7 +243,7 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
                     <div class="position-relative rounded overflow-hidden h-100">
                         <iframe class="position-relative w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.336461152097!2d-79.5801448!3d43.599535599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b47c04c82b9c9%3A0x7ecdca3d38e5b577!2s1185%20Queensway%20E%20Suite%207%2C%20Level%201%2C%20Mississauga%2C%20ON%20L4Y%201S1%2C%20Canada!5e0!3m2!1sen!2sin!4v1736529693139!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        <iframe src=" https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2901.53024476209!2d-80.28198112435993!3d43.345018072309436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c77871e423ef5%3A0x72d18647b7b75b3!2s71%20Slater%20St%2C%20Cambridge%2C%20ON%20N1R%200C4%2C%20Canada!5e0!3m2!1sen!2sin!4v1738960057584!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         frameborder="0" style="min-height: 450px; border:0;" allowfullscreen="" aria-hidden="false"
                         tabindex="0"></iframe>
                     </div>
@@ -261,7 +261,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Our Office</h4>
                     <i class="fa fa-map-marker-alt me-3"></i>
-                    <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer">
+                    <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer">
                         Address
                     </a>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>647-448-6229</p>
@@ -290,11 +290,11 @@
                     <a class="btn btn-link" href="service.html">Business Loans</a>
                     <a class="btn btn-link" href="service.html">Business Analysis</a> -->
                     <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
-                    <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Parents Plan (Retirement)</a>
+                <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
+                <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Quick Links</h4>
@@ -302,7 +302,7 @@
                     <a class="btn btn-link" href="about.html">About</a>
                     <a class="btn btn-link" href="investment.html">Investment</a>
                     <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="Insurances.html">Our Services</a>
+                    <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
                     <a class="btn btn-link" href="terms.html">Terms & Condition</a>
 
                 </div>
