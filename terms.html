@@ -29,6 +29,77 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Section Titles */
+        h2, h3, h4 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* Align content to the left */
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        section p, section ul {
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Links */
+        a {
+            color: #071a2d;
+            text-decoration: none;
+        }
+
+        a:hover {
+    text-decoration: none;
+}
+
+
+        /* Lists */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Footer (Optional for Contact) */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,7 +115,7 @@
                 <div class="col-lg-8 text-center text-lg-start mb-lg-0">
                     <div class="d-flex flex-wrap">
                         <div class="border-end border-primary pe-3">
-                            <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                            <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
                         </div>
                         <div class="ps-3">
                             <a href="mailto:info@maneinsurance.ca" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>info@maneinsurance.ca</a>
@@ -60,7 +131,7 @@
                         </div>
                         <!-- Privacy Policy link with hover effect -->
                         <div class="ms-3">
-                            <a href="terms.html" class="text-muted small privacy-policy-link">Terms and Conditions</a>
+                            <a href="terms.html" class="text-muted small privacy-policy-link active">Terms and Conditions</a>
                         </div>
                     </div>
                 </div>
@@ -83,27 +154,27 @@
                 <div class="navbar-nav mx-0 mx-lg-auto">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="Insurances.html" class="nav-item nav-link">Services</a>
+                    <a href="Insurances.html" class="nav-item nav-link">Insurances</a>
                     <a href="Investment.html" class="nav-item nav-link">Investment</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <div class="nav-btn px-3">
-                        <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Get a Quote</a>
+                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Add contacts</button>
                     </div>
                 </div>
             </div>
-            <!-- Replaced "Call to Our Experts" section with "Add Contact" button -->
+            <!-- Replaced "Call to Our Experts" section with "Get a Quote" button -->
             <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                <button id="addContactBtn" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
-                    <i class="fa fa-user-plus fa-lg"></i> Add Contact
-                </button>
+                <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
+                    Get a Quote
+                </a>
             </div>
         </nav>
     </div>
 </div>
 
-<!-- Script for "Add Contact" Button Functionality -->
+<!-- Script for "Get a Quote" Button Functionality -->
 <script>
-  document.getElementById('addContactBtn').addEventListener('click', function() {
+  document.getElementById('getQuoteBtn').addEventListener('click', function() {
     const vCard = `
       BEGIN:VCARD
       VERSION:3.0
@@ -115,7 +186,7 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'contact.Bhupendra-Mane.vcf';  // Clear file name for clarity
+    a.download = 'contact.Bhupendra-Mane.vcf';
     a.click();
     URL.revokeObjectURL(url);
   });
@@ -149,39 +220,121 @@
 
 
     <!-- Terms and Conditions Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <h2 class="display-6 mb-4">Welcome to Mane Insurance!</h2>
-            <p class="lead">These terms and conditions outline the rules and regulations for the use of our website and services. By accessing or using our services, you agree to be bound by these terms and conditions.</p>
-            <h3 class="mb-3">1. Acceptance of Terms</h3>
-            <p>By accessing or using our website, you agree to comply with and be bound by the following terms. If you do not agree to these terms, please refrain from using our website.</p>
-
-            <h3 class="mb-3">2. User Responsibilities</h3>
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Privacy Policy - Milife Insurance & Investments Inc</title>
+    </head>
+    
+    <body>
+    
+        <section>
+            <h2>Introduction</h2>
+            <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
+            <p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.</p>
+        </section>
+    
+        <section>
+            <h2>Interpretation and Definitions</h2>
+            <h3>Interpretation</h3>
+            <p>The words of which the initial letter is capitalized have meanings defined under the following conditions.</p>
+            <h3>Definitions</h3>
+            <p>For the purposes of this Privacy Policy:</p>
             <ul>
-                <li>You agree to provide accurate and complete information when using our website.</li>
-                <li>You are responsible for maintaining the confidentiality of your account and password.</li>
-                <li>You must comply with all applicable laws and regulations while using our services.</li>
+                <li><strong>You:</strong> The individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</li>
+                <li><strong>Company:</strong> Milife Insurance & Investment Inc, 1185 Queensway East, Suite 7, Mississauga On.</li>
+                <li><strong>Affiliate:</strong> An entity that controls, is controlled by or is under common control with a party.</li>
+                <li><strong>Account:</strong> A unique account created for You to access our Service or parts of our Service.</li>
+                <li><strong>Website:</strong> Milife Insurance & Investments Inc, accessible from <a href="https://maneinsurance.ca/">https://maneinsurance.ca/</a></li>
+                <li><strong>Service:</strong> Refers to the Website.</li>
+                <li><strong>Country:</strong> Ontario, Canada</li>
+                <li><strong>Service Provider:</strong> Any natural or legal person who processes the data on behalf of the Company.</li>
+                <li><strong>Third-party Social Media Service:</strong> Any website or social network website through which a User can log in or create an account to use the Service.</li>
+                <li><strong>Personal Data:</strong> Any information that relates to an identified or identifiable individual.</li>
+                <li><strong>Cookies:</strong> Small files that are placed on Your computer, mobile device, or any other device by a website, containing the details of Your browsing history.</li>
+                <li><strong>Usage Data:</strong> Data collected automatically, either generated by the use of the Service or from the Service infrastructure itself.</li>
             </ul>
-
-            <h3 class="mb-3">3. Use of Services</h3>
-            <p>Our services are intended for lawful purposes only. You may not use the services to violate any local, state, or international laws or regulations.</p>
-
-            <h3 class="mb-3">4. Limitation of Liability</h3>
-            <p>We shall not be held responsible for any damages or losses resulting from the use of our services, including any direct, indirect, incidental, or consequential damages.</p>
-
-            <h3 class="mb-3">5. Privacy Policy</h3>
-            <p>Your privacy is important to us. Please refer to our <a href="privacy-policy.html">Privacy Policy</a> for information on how we collect and protect your data.</p>
-
-            <h3 class="mb-3">6. Termination</h3>
-            <p>We may suspend or terminate your access to our services at any time if you violate these terms or engage in unlawful activities.</p>
-
-            <h3 class="mb-3">7. Changes to the Terms</h3>
-            <p>We reserve the right to update or modify these terms at any time. You are encouraged to review these terms regularly to stay informed about any changes.</p>
-
-            <h3 class="mb-3">8. Governing Law</h3>
-            <p>These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which our business is based.</p>
-        </div>
-    </div>
+        </section>
+    
+        <section>
+            <h2>Collecting and Using Your Personal Data</h2>
+            <h3>Types of Data Collected</h3>
+            <h4>Personal Data</h4>
+            <p>While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:</p>
+            <ul>
+                <li>Email address</li>
+                <li>First name and last name</li>
+                <li>Phone number</li>
+                <li>Usage Data</li>
+            </ul>
+    
+            <h4>Usage Data</h4>
+            <p>Usage Data is collected automatically when using the Service.</p>
+            <p>Usage Data may include information such as Your Device's Internet Protocol address (e.g., IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers, and other diagnostic data.</p>
+    
+            <h4>Tracking Technologies and Cookies</h4>
+            <p>We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service.</p>
+            <p>You can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies, You may not be able to use some parts of our Service.</p>
+        </section>
+    
+        <section>
+            <h2>Use of Your Personal Data</h2>
+            <p>The Company may use Personal Data for the following purposes:</p>
+            <ul>
+                <li>To provide and maintain our Service.</li>
+                <li>To manage Your Account.</li>
+                <li>For the performance of a contract.</li>
+                <li>To contact You with updates and information.</li>
+                <li>To provide news, special offers, and general information about similar goods, services, or events.</li>
+                <li>To manage Your requests.</li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>Retention of Your Personal Data</h2>
+            <p>The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations.</p>
+        </section>
+    
+        <section>
+            <h2>Transfer of Your Personal Data</h2>
+            <p>Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located.</p>
+        </section>
+    
+        <section>
+            <h2>Disclosure of Your Personal Data</h2>
+            <h3>Business Transactions</h3>
+            <p>If the Company is involved in a merger, acquisition, or asset sale, Your Personal Data may be transferred.</p>
+            <h3>Law enforcement</h3>
+            <p>Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities.</p>
+            <h3>Other legal requirements</h3>
+            <p>The Company may disclose Your Personal Data in good faith to comply with a legal obligation, protect rights, or prevent possible wrongdoing.</p>
+        </section>
+    
+        <section>
+            <h2>Security of Your Personal Data</h2>
+            <p>We strive to use commercially acceptable means to protect Your Personal Data, but no method of electronic storage or transmission is 100% secure.</p>
+        </section>
+    
+        <section>
+            <h2>Changes to this Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.</p>
+        </section>
+    
+        <section>
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, You can contact us:</p>
+            <ul>
+                <li>By email: <a href="mailto:info@maneinsurance.ca">info@maneinsurance.ca</a></li>
+                <li>By phone number: 6474486229</li>
+            </ul>
+        </section>
+    </body>
+    
+    </html>
+    
     <!-- Terms and Conditions End -->
 
 
@@ -192,7 +345,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Our Office</h4>
                     <i class="fa fa-map-marker-alt me-3"></i>
-                    <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer">
+                    <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer">
                         Address
                     </a>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>647-448-6229</p>
@@ -214,29 +367,29 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Services</h4>
-                    <!-- <a class="btn btn-link" href="service.html">Financial Planning</a>
-                    <a class="btn btn-link" href="service.html">Cash Investment</a>
-                    <a class="btn btn-link" href="service.html">Financial Consultancy</a>
-                    <a class="btn btn-link" href="service.html">Business Loans</a>
-                    <a class="btn btn-link" href="service.html">Business Analysis</a> -->
-                    <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
-                    <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Parents Plan (Retirement)</a>
-                </div>
+                    <h4 class="text-white mb-4">Insurance Services</h4>
+            
+
+                <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
+                <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
+                <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
+                  </div>
+            
+                  
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Quick Links</h4>
                     <a class="btn btn-link" href="index.html">Home</a>
                     <a class="btn btn-link" href="about.html">About</a>
                     <a class="btn btn-link" href="investment.html">Investment</a>
                     <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="Insurances.html">Our Services</a>
+                    <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
                     <a class="btn btn-link" href="terms.html">Terms & Condition</a>
 
                 </div>
+                
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Insurance Tips</h4>
                     <p>Stay informed with valuable insurance insights and financial tips to secure your future.</p>
