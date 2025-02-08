@@ -8,6 +8,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -29,6 +30,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -46,7 +48,7 @@
             <div class="col-lg-8 text-center text-lg-start mb-lg-0">
                 <div class="d-flex flex-wrap">
                     <div class="border-end border-primary pe-3">
-                        <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                        <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
                     </div>
                     <div class="ps-3">
                         <a href="mailto:info@maneinsurance.ca" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>info@maneinsurance.ca</a>
@@ -83,29 +85,29 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-0 mx-lg-auto">
-                    <a href="index.html" class="nav-item nav-link ">Home</a>
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="Insurances.html" class="nav-item nav-link active">Services</a>
+                    <a href="Insurances.html" class="nav-item nav-link">Insurances</a>
                     <a href="Investment.html" class="nav-item nav-link">Investment</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <div class="nav-btn px-3">
-                        <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Get a Quote</a>
+                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Add contacts</button>
                     </div>
                 </div>
             </div>
-            <!-- Replaced "Call to Our Experts" section with "Add Contact" button -->
+            <!-- Replaced "Call to Our Experts" section with "Get a Quote" button -->
             <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                <button id="addContactBtn" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
-                    <i class="fa fa-user-plus fa-lg"></i> Add Contact
-                </button>
+                <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
+                    Get a Quote
+                </a>
             </div>
         </nav>
     </div>
 </div>
 
-<!-- Script for "Add Contact" Button Functionality -->
+<!-- Script for "Get a Quote" Button Functionality -->
 <script>
-  document.getElementById('addContactBtn').addEventListener('click', function() {
+  document.getElementById('getQuoteBtn').addEventListener('click', function() {
     const vCard = `
       BEGIN:VCARD
       VERSION:3.0
@@ -117,7 +119,7 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'contact.Bhupendra-Mane.vcf';  // Clear file name for clarity
+    a.download = 'contact.Bhupendra-Mane.vcf';
     a.click();
     URL.revokeObjectURL(url);
   });
@@ -209,162 +211,168 @@
 </div>
 
 <div class="row g-3 justify-content-center">
-    <!-- First Section: Life Insurance -->
-    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-        <div class="service-item" onclick="toggleCallback(event)">
-            <div class="service-img">
-                <img src="img/insurance-5238829_1280.jpg" class="img-fluid rounded-top w-100" alt="Life Insurance">
-            </div>
-            <div class="service-content p-4">
-                <div class="service-content-inner">
-                    <a href="#" class="d-inline-block h4 mb-4 fw-bold">Life Insurance</a>
-                    <p class="mb-3 short-text">
-                        Term & Permanent life insurance for financial security & peace of mind.
-                    </p>
-                    <p class="mb-3 full-text" style="display: none;">
-                        Term insurance is a life insurance policy that provides coverage for a specified period, 
-                        typically 10, 20, or 30 years. It is ideal for individuals with financial responsibilities, 
-                        such as mortgages, dependents, or business commitments,
-                         offering affordable and temporary protection during essential stages of life.
-                    </p>
-                    <p><i class="fa fa-check text-primary me-3"></i> Enjoy a stress-free stay</p>
-                    <p><i class="fa fa-check text-primary me-3"></i> Benefits for your dependents</p>
-                    <p><i class="fa fa-check text-primary me-3"></i> 24-hour customer support</p>
-                    <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
-                        Read more
-                    </a>
+    <div class="container py-5">
+        <div class="row g-4"> <!-- "g-4" adds spacing between columns -->
+          
+            
+            <!-- First Service: Life Insurance -->
+            <div class="container py-5">
+                <div class="row g-4 justify-content-center">
+                    <!-- Life Insurance -->
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="service-item" onclick="toggleCallback(event)" 
+                            style="min-height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div class="service-img">
+                                <img src="img/insurance-5238829_1280.jpg" 
+                                    class="img-fluid rounded-top w-100" 
+                                    alt="Life Insurance" 
+                                    style="width: 100%; height: auto; object-fit: contain;">
+                            </div>
+                            <div class="service-content p-4" style="flex-grow: 1;">
+                                <div class="service-content-inner">
+                                    <a href="#" class="d-inline-block h4 mb-4 fw-bold">Life Insurance</a>
+                                    <p class="mb-3 short-text">Term & Permanent life insurance for financial security & peace of mind.</p>
+                                    <p class="mb-3 full-text" style="display: none;">Term insurance provides financial coverage for a predetermined period, ensuring affordable protection for policyholders. If the insured passes away during the term, beneficiaries receive a death benefit. 
+                                        It is a cost-effective way to secure financial stability for loved ones.</p>
+                                    <p><i class="fa fa-check text-primary me-3"></i> Enjoy a stress-free stay</p>
+                                    <p><i class="fa fa-check text-primary me-3"></i> Benefits for your dependents</p>
+                                    <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" 
+                                        href="javascript:void(0);" 
+                                        onclick="toggleText(event, this)">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Critical Illness Insurance -->
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="service-item" onclick="toggleCallback(event)" 
+                            style="min-height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div class="service-img">
+                                <img src="img/3979003.jpg" 
+                                    class="img-fluid rounded-top w-100" 
+                                    alt="Critical Illness Insurance" 
+                                    style="width: 100%; height: auto; object-fit: contain;">
+                            </div>
+                            <div class="service-content p-4" style="flex-grow: 1;">
+                                <div class="service-content-inner">
+                                    <a href="#" class="d-inline-block h4 mb-4">Critical Illness Insurance</a>
+                                    <p class="mb-3 short-text">Coverage for life-threatening conditions like heart attack and cancer.</p>
+                                    <p class="mb-3 full-text" style="display: none;">Critical illness insurance provides a lump sum payment if the insured is diagnosed with a severe medical condition covered by the policy. This financial support helps cover medical expenses, lost income, and daily living costs, ensuring stability and peace of mind during recovery.</p>
+                                    <p><i class="fa fa-check text-primary me-3"></i> Best Digital Experience</p>
+                                    <p><i class="fa fa-check text-primary me-3"></i> Self-reliant Insurance Broker</p>
+                                    <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" 
+                                        href="javascript:void(0);" 
+                                        onclick="toggleText(event, this)">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Disability Insurance -->
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="service-item" onclick="toggleCallback(event)" 
+                            style="min-height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div class="service-img">
+                                <img src="img/10476779.jpg" 
+                                    class="img-fluid rounded-top w-100" 
+                                    alt="Disability Insurance" 
+                                    style="width: 100%; height: auto; object-fit: contain;">
+                            </div>
+                            <div class="service-content p-4" style="flex-grow: 1;">
+                                <div class="service-content-inner">
+                                    <a href="#" class="d-inline-block h4 mb-4">Disability Insurance</a>
+                                    <p class="mb-3 short-text">Protect your income in case of unexpected illness or injury.</p>
+                                    <p class="mb-3 full-text" style="display: none;">Disability insurance provides income replacement if an individual is unable to work due to illness or injury. It helps cover essential expenses such as mortgage payments, utility bills, and daily living costs, ensuring financial stability and peace of mind during recovery or long-term disability..</p>
+                                    <p><i class="fa fa-check text-primary me-3"></i> Seamless Digital Experience</p>
+                                    <p><i class="fa fa-check text-primary me-3"></i> Self-Driven Insurance Broker</p>
+                                    <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" 
+                                        href="javascript:void(0);" 
+                                        onclick="toggleText(event, this)">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Second Section: Super Visa and Visitor Insurance -->
-    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
-        <div class="service-item" onclick="toggleCallback(event)">
-            <div class="service-img">
-                <img src="img/37213.jpg" class="img-fluid rounded-top w-100" alt="Super Visa Insurance">
-            </div>
-            <div class="service-content p-4">
-                <div class="service-content-inner">
-                    <a href="#" class="d-inline-block h4 mb-4">Super Visa and Visitor Insurance</a>
-                    <p class="mb-4 short-text">
-                        Comprehensive insurance for long-term visits & tourist stays.
-                    </p>
-                    <p class="mb-4 full-text" style="display: none;">
-                        A Super Visa enables parents and grandparents of Canadian citizens or permanent residents to stay in Canada for up to two years at a time, with a validity of up to 10 years. 
-                        The visa requires proof of financial support from the sponsor and mandatory medical insurance coverage to ensure the applicant’s health during their stay.
-                    </p>
-                    <p><i class="fa fa-check text-primary me-3"></i> Best Digital Experience</p>
-                    <p><i class="fa fa-check text-primary me-3"></i> Self-reliant Insurance Broker</p>
-                    <p><i class="fa fa-check text-primary me-3"></i> Your Coverage, Your Way</p>
-                    <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
-                        Read more
-                    </a>
+            
+            <!-- Fourth Service: Estate Plan / Retirement -->
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.8s">
+                <div class="service-item" onclick="toggleCallback(event)">
+                    <div class="service-img" style="height: 300px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                        <img src="img/img-retirement.png" 
+                            class="img-fluid rounded-top w-100" 
+                            alt="Estate Plan"
+                            style="max-width: 110%; max-height: 110%; object-fit: cover; transform: scale(1.1); transition: transform 0.3s ease-in-out;">
+                    </div>
+                    
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">Estate Plan / Retirement Plan</a>
+                            <p class="mb-3 short-text">Insured retirement strategy for financial security.</p>
+                            <p class="mb-3 full-text" style="display: none;">A structured approach to retirement planning ensures long-term financial security by systematically saving, investing, and managing assets. It helps individuals build a stable income stream for retirement, covering essential expenses and maintaining their desired lifestyle without financial stress in later years.A structured approach to retirement planning ensures long-term financial security by systematically saving, investing, and managing assets. It helps individuals build a stable income stream for retirement, covering essential expenses and maintaining their desired lifestyle without financial stress in later years.</p>
+                            <p><i class="fa fa-check text-primary me-3"></i> Benefits for dependents</p>
+                            <p><i class="fa fa-check text-primary me-3"></i> Coverage for Medical Expenses</p>
+                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Third Section: Critical Illness Insurance -->
-    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
-        <div class="service-item" onclick="toggleCallback(event)">
-            <div class="service-img">
-                <img src="img/3979003.jpg" class="img-fluid rounded-top w-100" alt="Critical Illness Insurance">
-            </div>
-            <div class="service-content p-4">
-                <div class="service-content-inner">
-                    <a href="#" class="d-inline-block h4 mb-4">Critical Illness Insurance</a>
-                    <p class="mb-4 short-text">
-                        Coverage for life-threatening conditions like heart attack and cancer.
-                    </p>
-                    <p class="mb-4 full-text" style="display: none;">
-                        Critical illness insurance provides a lump sum, tax-free payment if you're diagnosed with a major health condition, such as cancer,
-                         heart attack, or stroke.
-                         This coverage helps with medical expenses, lifestyle changes, and other financial needs during a challenging recovery period.
-                    </p>
-                    <p><i class="fa fa-check text-primary me-3"></i> Seamless Digital Experience</p>
-                    <p><i class="fa fa-check text-primary me-3"></i> Self-Driven Insurance Broker</p>
-                    <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
-                        Read more
-                    </a>
+    
+            <!-- Fifth Service: Health & Dental Insurance -->
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="1s">
+                <div class="service-item" onclick="toggleCallback(event)">
+                    <div class="service-img" style="height: 300px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                        <img src="img/4587.jpg" 
+                            class="img-fluid rounded-top w-100" 
+                            alt="Health & Dental Insurance"
+                            style="max-width: 110%; max-height: 110%; object-fit: cover; transform: scale(1.1); transition: transform 0.3s ease-in-out;">
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">Health & Dental Insurance</a>
+                            <p class="mb-3 short-text">Ensuring coverage for prescriptions & dental care.</p>
+                            <p class="mb-3 full-text" style="display: none;">Health and dental insurance covers prescription medications, essential treatments, and preventive care, ensuring access to quality medical and dental services. It helps reduce out-of-pocket expenses for doctor visits, dental check-ups, procedures, and treatments, promoting overall health, wellness, and financial security.</p>
+                            <p><i class="fa fa-check text-primary me-3"></i> Seamless Digital Experience</p>
+                            <p><i class="fa fa-check text-primary me-3"></i> Self-Driven Insurance Broker</p>
+                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+    
+            <!-- Sixth Service: Super Visa Insurance -->
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="1.2s">
+                <div class="service-item" onclick="toggleCallback(event)">
+                    <div class="service-img" 
+    style="height: 300px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+    <img src="img/37213.jpg" 
+        class="img-fluid rounded-top w-100" 
+        alt="Super Visa Insurance"
+        style="max-width: 110%; max-height: 110%; object-fit: contain; transform: scale(1.1); transition: transform 0.3s ease-in-out;">
 </div>
 
-<!-- Fourth Section: Disability Insurance -->
-<div class="container py-5">
-    <div class="row">
-        <!-- First Service Block -->
-        <div class="col-md-4 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="1s">
-            <div class="service-item" onclick="toggleCallback(event)">
-                <div class="service-img">
-                    <img src="img/10476779.jpg" class="img-fluid rounded-top w-100" alt="Disability Insurance">
-                </div>
-                <div class="service-content p-4">
-                    <div class="service-content-inner">
-                        <a href="#" class="d-inline-block h4 mb-4">Disability Insurance</a>
-                        <p class="mb-4 short-text">Protect your income in case of unexpected illness or injury.</p>
-                        <p class="mb-4 full-text" style="display: none;">
-                            Disability insurance is designed to provide financial protection for individuals and their families if they are unable to work due to illness, injury,
-                             or disability.
-                             It offers income replacement to help cover living expenses and maintain financial stability during periods of incapacitation.
-                        </p>
-                        <p><i class="fa fa-check text-primary me-3"></i> Benefits for your dependents</p>
-                        <p><i class="fa fa-check text-primary me-3"></i> Coverage for Medical Expenses</p>
-                        <p><i class="fa fa-check text-primary me-3"></i> Flexible Benefit Payouts</p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
+                    
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">Super Visa Insurance</a>
+                            <p class="mb-3 short-text">Comprehensive insurance for long-term visitors.</p>
+                            <p class="mb-3 full-text" style="display: none;">Super Visa insurance ensures financial security and medical coverage for extended visits to Canada. It covers emergency healthcare, hospital stays, prescription medications, and doctor consultations, meeting government requirements while providing peace of mind for visitors and their sponsoring family members.</p>
+                            <p><i class="fa fa-check text-primary me-3"></i> Seamless Digital Experience</p>
+                            <p><i class="fa fa-check text-primary me-3"></i> Self-Driven Insurance Broker</p>
+                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Fifth Section: Health & Dental Insurance -->
-        <div class="col-md-4 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="1s">
-            <div class="service-item" onclick="toggleCallback(event)">
-                <div class="service-img">
-                    <img src="img/4587.jpg" class="img-fluid rounded-top w-100" alt="Health & Dental Insurance">
-                </div>
-                <div class="service-content p-4">
-                    <div class="service-content-inner">
-                        <a href="#" class="d-inline-block h4 mb-4">Health & Dental Insurance</a>
-                        <p class="mb-3 short-text">Ensuring coverage for health services, prescriptions & dental care.</p>
-                        <p class="mb-3 full-text" style="display: none;">
-                            Health and dental coverage in Ontario includes a range of services such as prescription medications,
-                             medical treatments, and dental care. It helps reduce the financial burden of essential healthcare needs,
-                             ensuring access to necessary treatments and preventive care for individuals and families.
-                        </p>
-                        <p><i class="fa fa-check text-primary me-3"></i> Seamless Digital Experience</p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sixth Section: Parents Plan (Retirement) -->
-        <div class="col-md-4 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="1s">
-            <div class="service-item" onclick="toggleCallback(event)">
-                <div class="service-img">
-                    <img src="img/img-retirement.png" class="img-fluid rounded-top w-100" alt="Parents Plan (Retirement)">
-                </div>
-                <div class="service-content p-4">
-                    <div class="service-content-inner">
-                        <a href="#" class="d-inline-block h4 mb-4">Parents Plan (Retirement)</a>
-                        <p class="mb-3 short-text">Insured retirement strategy to secure financial future.</p>
-                        <p class="mb-3 full-text" style="display: none;">
-                            Parents Plan is an insured retirement strategy designed to meet your dual need for long-term financial security and peace of mind. It provides a structured approach to retirement planning,
-                             ensuring that both you and your family are financially protected in the future.
-                        </p>
-                        <p><i class="fa fa-check text-primary me-3"></i> Your Coverage, Your Way</p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
-                    </div>
-                </div>
-            </div>
+    
         </div>
     </div>
-</div>
+    
 
+<div class="text-center mt-4">
+    <a href="Investment.html" class="btn investment-btn rounded-pill py-2 px-4">Explore Investment Plans</a>
+</div>
 <!-- Callback Modal -->
 <div class="modal" id="callbackModal" tabindex="-1" aria-labelledby="callbackModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -485,6 +493,28 @@
     .container-fluid.service {
         padding-top: 50px;  /* Adjust for desired gap */
     }
+     /* Basic Button Style */
+     .investment-btn {
+        background-color: #2c2463; /* Original background color */
+        color: white; /* Text color */
+        padding: 10px 20px; /* Padding for the button */
+        border-radius: 30px; /* Rounded corners */
+        font-weight: bold; /* Bold text */
+        text-decoration: none; /* Remove underline from link */
+        display: inline-block; /* Make sure it's treated as a block element */
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    }
+
+    /* Hover Effect */
+    .investment-btn:hover {
+        background-color: #c6c6c6; /* Darker shade on hover */
+        transform: translateY(-2px); /* Button lifts slightly */
+    }
+
+    /* Optional: For better button alignment */
+    .text-center {
+        text-align: center;
+    }
   </style>
   
     
@@ -565,7 +595,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Our Office</h4>
                     <i class="fa fa-map-marker-alt me-3"></i>
-                    <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer">
+                    <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer">
                         Address
                     </a>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>647-448-6229</p>
@@ -588,13 +618,14 @@
                 
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Insurance Services</h4>
-                    <a class="btn btn-link" href="javascript:void(0);" onclick="showInsuranceContent('life-insurance')">Life Insurance (Life and Permanent)</a>
+            
 
-                    <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Parents Plan (Retirement)</a>
+                <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
+                <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
+                <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
                   </div>
             
                   
@@ -604,7 +635,7 @@
                     <a class="btn btn-link" href="about.html">About</a>
                     <a class="btn btn-link" href="investment.html">Investment</a>
                     <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="Insurances.html">Our Services</a>
+                    <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
                     <a class="btn btn-link" href="terms.html">Terms & Condition</a>
 
                 </div>
