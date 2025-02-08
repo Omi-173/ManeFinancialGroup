@@ -46,7 +46,7 @@
             <div class="col-lg-8 text-center text-lg-start mb-lg-0">
                 <div class="d-flex flex-wrap">
                     <div class="border-end border-primary pe-3">
-                        <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                        <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer" class="text-muted small"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
                     </div>
                     <div class="ps-3">
                         <a href="mailto:info@maneinsurance.ca" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>info@maneinsurance.ca</a>
@@ -83,29 +83,29 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-0 mx-lg-auto">
-                    <a href="index.html" class="nav-item nav-link ">Home</a>
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="Insurances.html" class="nav-item nav-link ">Services</a>
-                    <a href="investment.html" class="nav-item nav-link active">Investment</a>
+                    <a href="Insurances.html" class="nav-item nav-link">Insurances</a>
+                    <a href="Investment.html" class="nav-item nav-link">Investment</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <div class="nav-btn px-3">
-                        <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Get a Quote</a>
+                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Add contacts</button>
                     </div>
                 </div>
             </div>
-            <!-- Replaced "Call to Our Experts" section with "Add Contact" button -->
+            <!-- Replaced "Call to Our Experts" section with "Get a Quote" button -->
             <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                <button id="addContactBtn" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
-                    <i class="fa fa-user-plus fa-lg"></i> Add Contact
-                </button>
+                <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
+                    Get a Quote
+                </a>
             </div>
         </nav>
     </div>
 </div>
 
-<!-- Script for "Add Contact" Button Functionality -->
+<!-- Script for "Get a Quote" Button Functionality -->
 <script>
-  document.getElementById('addContactBtn').addEventListener('click', function() {
+  document.getElementById('getQuoteBtn').addEventListener('click', function() {
     const vCard = `
       BEGIN:VCARD
       VERSION:3.0
@@ -117,7 +117,7 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'contact.Bhupendra-Mane.vcf';  // Clear file name for clarity
+    a.download = 'contact.Bhupendra-Mane.vcf';
     a.click();
     URL.revokeObjectURL(url);
   });
@@ -242,84 +242,104 @@ _strk.push(function() {
                 ensuring steady growth, reliable returns, and the peace of mind you deserve.
                  Let us help you secure a prosperous financial future.</p>
         </div>
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4 justify-content-center d-flex">
             <!-- RRSP Card -->
-            <div class="row g-3 justify-content-center">
-                <!-- RRSP Card -->
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="service-item" onclick="toggleCallback(event)">
-                        <div class="service-img">
-                            <img src="img/img-retirement.png" class="img-fluid rounded-top w-100" alt="RRSP">
-                        </div>
-                        <div class="service-content p-4">
-                            <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">RRSP</a>
-                                <p class="mb-4 short-text">
-                                    RRSP (Registered Retirement Savings Plan) is a government-approved investment account to help save for retirement.
-                                </p>
-                                <p class="mb-3 full-text" style="display: none; opacity: 0; transition: opacity 0.5s ease-in-out;">
-                                    Contributions to an RRSP are tax-deductible, which reduces your taxable income for the current year,
-                                     potentially lowering your overall tax burden. The investments within the RRSP grow tax-free,
-                                     meaning you don't pay taxes on the earnings until you make withdrawals, typically during retirement when your income may be lower.
-                                </p>
-                                <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
-                                    Read more
-                                </a>
-                            </div>
-                        </div>
+            <div class="col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="service-item" onclick="toggleCallback(event)">
+                    <div class="service-img">
+                        <img src="img/img-retirement.png" class="img-fluid rounded-top w-100" alt="RRSP">
                     </div>
-                </div>
-                
-                <!-- TFSA Card -->
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="service-item" onclick="toggleCallback(event)">
-                        <div class="service-img">
-                            <img src="img/taxfree.jpg" class="img-fluid rounded-top w-100" alt="TFSA">
-                        </div>
-                        <div class="service-content p-4">
-                            <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">TFSA</a>
-                                <p class="mb-4 short-text">
-                                    A Tax-Free Savings Account (TFSA) helps Canadians save money with tax-free growth and withdrawals, making it great for any financial goal.
-                                </p>
-                                
-                                <p class="mb-3 full-text" style="display: none; opacity: 0; transition: opacity 0.5s ease-in-out;">
-                                    A TFSA (Tax-Free Savings Account) is available to Canadian residents aged 18 and older, providing a flexible way to save and invest money. Contributions grow tax-free, and withdrawals can be made without penalties, offering versatility for various financial objectives.
-                                </p>
-                                
-                                <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
-                                    Read more
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- RESP Card -->
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="service-item" onclick="toggleCallback(event)">
-                        <div class="service-img">
-                            <img src="img/education.png" class="img-fluid rounded-top w-100" alt="RESP">
-                        </div>
-                        <div class="service-content p-4">
-                            <div class="service-content-inner">
-                                <a href="#" class="d-inline-block h4 mb-4">RESP</a>
-                                <p class="mb-4 short-text">
-                                    A Registered Education Savings Plan (RESP) helps parents save for their child’s education.
-                                </p>
-                                <p class="mb-3 full-text" style="display: none; opacity: 0; transition: opacity 0.5s ease-in-out;">
-                                    A Registered Education Savings Plan (RESP) is a Canadian tax-free savings account that helps parents save for their children's post-secondary education. Contributions grow tax-free,
-                                     and the government offers additional support through grants such as the Canada Education Savings Grant (CESG) and Canada Learning Bond (CLB), 
-                                     which boost the savings.
-                                </p>
-                                <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
-                                    Read more
-                                </a>
-                            </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">RRSP</a>
+                            <p class="mb-4 short-text">
+                                RRSP (Registered Retirement Savings Plan) is a government-approved investment account to help save for retirement.
+                            </p>
+                            <p class="mb-3 full-text" style="display: none; opacity: 0; transition: opacity 0.5s ease-in-out;">
+                                Contributions to an RRSP are tax-deductible, which reduces your taxable income for the current year,
+                                potentially lowering your overall tax burden. The investments within the RRSP grow tax-free,
+                                meaning you don't pay taxes on the earnings until you make withdrawals, typically during retirement when your income may be lower.
+                            </p>
+                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
+                                Read more
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+        
+            <!-- TFSA Card -->
+            <div class="col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="service-item" onclick="toggleCallback(event)">
+                    <div class="service-img">
+                        <img src="img/taxfree.jpg" class="img-fluid rounded-top w-100" alt="TFSA">
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">TFSA</a>
+                            <p class="mb-4 short-text">
+                                A Tax-Free Savings Account (TFSA) helps Canadians save money with tax-free growth and withdrawals, making it great for any financial goal.
+                            </p>
+                            <p class="mb-3 full-text" style="display: none; opacity: 0; transition: opacity 0.5s ease-in-out;">
+                                A TFSA (Tax-Free Savings Account) is available to Canadian residents aged 18 and older, providing a flexible way to save and invest money. Contributions grow tax-free, and withdrawals can be made without penalties, offering versatility for various financial objectives.
+                            </p>
+                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
+                                Read more
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- RESP Card -->
+            <div class="col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="service-item" onclick="toggleCallback(event)">
+                    <div class="service-img">
+                        <img src="img/education.png" class="img-fluid rounded-top w-100" alt="RESP">
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">RESP</a>
+                            <p class="mb-4 short-text">
+                                A Registered Education Savings Plan (RESP) helps parents save for their child’s education.
+                            </p>
+                            <p class="mb-3 full-text" style="display: none; opacity: 0; transition: opacity 0.5s ease-in-out;">
+                                A Registered Education Savings Plan (RESP) is a Canadian tax-free savings account that helps parents save for their children's post-secondary education. Contributions grow tax-free,
+                                and the government offers additional support through grants such as the Canada Education Savings Grant (CESG) and Canada Learning Bond (CLB),
+                                which boost the savings.
+                            </p>
+                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
+                                Read more
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- FHSA Card -->
+            <div class="col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="service-item" onclick="toggleCallback(event)">
+                    <div class="service-img">
+                        <img src="img/2302.i301.029.S.m004.c13.Social insurance isometric composition.jpg" class="img-fluid rounded-top w-100" alt="FHSA">
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">FHSA</a>
+                            <p class="mb-4 short-text">
+                                FHSA is a Canadian government-backed savings and investment account designed
+                            </p>
+                            <p class="mb-3 full-text" style="display: none; opacity: 0; transition: opacity 0.5s ease-in-out;">
+                                The First Home Savings Account (FHSA) is a Canadian government-backed savings and investment account designed to help first-time homebuyers save for their first home. The account allows individuals to save up to $40,000 toward the purchase of a home, with a combination of tax advantages.
+                            </p>
+                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">
+                                Read more
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
             
         
         <!-- Callback Modal -->
@@ -748,7 +768,7 @@ _strk.push(function() {
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-4">Our Office</h4>
                 <i class="fa fa-map-marker-alt me-3"></i>
-                <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer">
+                <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer">
                     Address
                 </a>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>647-448-6229</p>
@@ -777,11 +797,11 @@ _strk.push(function() {
                 <a class="btn btn-link" href="service.html">Business Loans</a>
                 <a class="btn btn-link" href="service.html">Business Analysis</a> -->
                 <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
-                <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
                 <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
                 <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
                 <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Parents Plan (Retirement)</a>
+                <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-4">Quick Links</h4>
@@ -790,7 +810,7 @@ _strk.push(function() {
                 <a class="btn btn-link" href="about.html">About</a>
                 <a class="btn btn-link" href="investment.html">Investment</a>
                 <a class="btn btn-link" href="contact.html">Contact Us</a>
-                <a class="btn btn-link" href="Insurances.html">Our Services</a>
+                <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
                 <a class="btn btn-link" href="terms.html">Terms & Condition</a>
 
             </div>
