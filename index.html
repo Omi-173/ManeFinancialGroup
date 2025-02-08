@@ -113,28 +113,30 @@
                 <div class="navbar-nav mx-0 mx-lg-auto">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="Insurances.html" class="nav-item nav-link">Services</a>
+                    <a href="Insurances.html" class="nav-item nav-link">Insurances</a>
                     <a href="Investment.html" class="nav-item nav-link">Investment</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    <div class="nav-btn px-3">
-                        <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Get a Quote</a>
+                    <div class="nav-btn px-3 d-flex align-items-center">
+                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-1 px-3 ms-3 flex-shrink-0">
+                            <i class="fa fa-user-plus"></i> Add Contact
+                        </button>
                     </div>
-                </div>
+                    
             </div>
-            <!-- Replaced "Call to Our Experts" section with "Add Contact" button -->
+            <!-- Replaced "Call to Our Experts" section with "Get a Quote" button -->
             <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                <button id="addContactBtn" class="btn btn-primary rounded-pill py-2 px-3 ms-3 flex-shrink-0">
-                    <i class="fa fa-user-plus fa-lg"></i> Add Contact
-                </button>
+                <a href="contact.html" class="btn btn-primary rounded-pill py-1 px-3 ms-3 flex-shrink-0">
+                    Get a Quote
+                </a>
             </div>
-            
         </nav>
+        
     </div>
 </div>
 
-<!-- Script for "Add Contact" Button Functionality -->
+<!-- Script for "Get a Quote" Button Functionality -->
 <script>
-  document.getElementById('addContactBtn').addEventListener('click', function() {
+  document.getElementById('getQuoteBtn').addEventListener('click', function() {
     const vCard = `
       BEGIN:VCARD
       VERSION:3.0
@@ -146,11 +148,13 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'contact.Bhupendra-Mane.vcf';  // Clear file name for clarity
+    a.download = 'contact.Bhupendra-Mane.vcf';
     a.click();
     URL.revokeObjectURL(url);
   });
 </script>
+
+
 
     <!-- Modal Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -203,12 +207,16 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8 text-white">
                                 <h1 class="display-4 fw-bold mb-4 animated fadeInDown">
-                                    Your Trusted Financial Partner <br> Empowering Your Future, Today!
+                                    Your trusted insurance <br>And registered investment partner!
                                 </h1>
-                                <p class="lead animated fadeInUp">
-                                    At Mane Financial Group, we provide tailored solutions for <strong>wealth growth</strong>, 
-                                    <strong>investment strategies</strong>, and <strong>secure financial planning</strong>.
+                                <p class="lead animated fadeInUp"
+                                 style="font-size: 14px; line-height: 1.4; font-weight: 100;">
+                                At Mane Financial Group, we provide tailored & customized solutions for 
+                                <strong>insurance</strong>, <strong>investment strategies</strong>, and 
+                                <strong>secure financial planning</strong>.
                                 </p>
+
+                                <h2>"Plan never fail, We fail to plan"</h2>
                                 <a href="Insurances.html" class="btn btn-lg btn-gradient animated fadeInUp mt-3">
                                     Explore More <i class="fas fa-arrow-right ms-2"></i>
                                 </a>
@@ -258,8 +266,12 @@
         width: 100vw;
         height: 100vh;
         position: relative;
-        overflow: hidden;
-    }
+        overflow: hidden; 
+    overflow-x: hidden; /* Prevents the horizontal scroll */
+    width: 100%; /* Ensures full width */
+}
+
+    
 
     /* Background Effect */
     #vanta-container {
@@ -286,7 +298,7 @@
     .btn-gradient {
         background: linear-gradient(135deg, #0d0927, #130a49);
         color: white;
-        padding: 12px 30px;
+        padding: 10px 30px;
         border-radius: 30px;
         font-size: 1.1rem;
         text-transform: uppercase;
@@ -301,14 +313,6 @@
         box-shadow: 0 6px 15px rgba(35, 29, 73, 0.5);
     }
 </style>
-
-
-
-
-
-    
-
- 
 
 
    <!-- Feature Start -->
@@ -385,25 +389,25 @@
         <div class="row g-5">
             <div class="col-sm-6 col-lg-3 text-center">
                 <i class="fa fa-users fa-3x text-white mb-3"></i>
-                <h1 class="display-4 text-white counter" data-target="1200">0</h1>
+                <h1 class="display-4 text-white counter" data-target="990">0</h1>
                 <span class="fs-5 text-white">Happy Clients</span>
                 <hr class="bg-white w-25 mx-auto mb-0">
             </div>
             <div class="col-sm-6 col-lg-3 text-center">
                 <i class="fa fa-check fa-3x text-white mb-3"></i>
-                <h1 class="display-4 text-white counter" data-target="1234">0</h1>
+                <h1 class="display-4 text-white counter" data-target="990">0</h1>
                 <span class="fs-5 text-white">Projects Completed</span>
                 <hr class="bg-white w-25 mx-auto mb-0">
             </div>
             <div class="col-sm-6 col-lg-3 text-center">
                 <i class="fa fa-users-cog fa-3x text-white mb-3"></i>
-                <h1 class="display-4 text-white counter" data-target="1234">0</h1>
+                <h1 class="display-4 text-white">2</h1>
                 <span class="fs-5 text-white">Dedicated Staff</span>
                 <hr class="bg-white w-25 mx-auto mb-0">
             </div>
             <div class="col-sm-6 col-lg-3 text-center">
                 <i class="fa fa-award fa-3x text-white mb-3"></i>
-                <h1 class="display-4 text-white counter" data-target="1234">0</h1>
+                <h1 class="display-4 text-white counter" data-target="20">0</h1>
                 <span class="fs-5 text-white">Awards Achieved</span>
                 <hr class="bg-white w-25 mx-auto mb-0">
             </div>
@@ -418,7 +422,7 @@
         counters.forEach(counter => {
             let target = +counter.getAttribute("data-target");
             let current = 0;
-            let speed = Math.floor(target / 100); // Adjust speed based on value
+            let speed = Math.floor(target / 20); // Adjust speed based on value
 
             function updateCounter() {
                 if (current < target) {
@@ -430,7 +434,7 @@
                         counter.innerText = "0"; // Reset
                         current = 0;
                         updateCounter(); // Restart the count
-                    }, 2000); // Wait 2 seconds before restarting
+                    }, 1000); // Wait 2 seconds before restarting
                 }
             }
 
@@ -447,7 +451,7 @@
 <script>
     // Function to animate counters
     const counters = document.querySelectorAll('[data-toggle="counter-up"]');
-    const speed = 200; // Speed of the animation
+    const speed = 100; // Speed of the animation
 
     counters.forEach(counter => {
         const animateCounter = () => {
@@ -971,7 +975,7 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Our Office</h4>
                     <i class="fa fa-map-marker-alt me-3"></i>
-                    <a href="https://www.google.com/maps/place/1185+Queensway+E+Suite+7,+Level+1,+Mississauga,+ON+L4Y+1S1,+Canada/@43.5995122,-79.5823303,17z/data=!3m1!4b1!4m5!3m4!1s0x882b47c04c82b9c9:0x7ecdca3d38e5b577!8m2!3d43.5995122!4d-79.5801416?shorturl=1" target="_blank" rel="noopener noreferrer">
+                    <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer">
                         Address
                     </a>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>647-448-6229</p>
@@ -999,12 +1003,13 @@
                     <a class="btn btn-link" href="service.html">Financial Consultancy</a>
                     <a class="btn btn-link" href="service.html">Business Loans</a>
                     <a class="btn btn-link" href="service.html">Business Analysis</a> -->
-                    <a class="btn btn-link" href="#life-insurance-section">Life Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
-                    <a class="btn btn-link" href="Insurances.html">Parents Plan (Retirement)</a>
+                    
+                <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
+                <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
+                <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
+                <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Quick Links</h4>
@@ -1012,7 +1017,7 @@
                 <a class="btn btn-link" href="about.html">About</a>
                 <a class="btn btn-link" href="investment.html">Investment</a>
                 <a class="btn btn-link" href="contact.html">Contact Us</a>
-                <a class="btn btn-link" href="Insurances.html">Our Services</a>
+                <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
                 <a class="btn btn-link" href="terms.html">Terms & Condition</a>
 
                 </div>
