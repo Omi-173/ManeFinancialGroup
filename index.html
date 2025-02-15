@@ -31,28 +31,7 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- <style>
-        /* Style for the video background */
-        .background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1; /* Ensures video stays behind the content */
-            opacity: 0.8; /* Adjust transparency */
-        }
-
-        /* Ensure content is readable over the video */
-        .content {
-            position: relative;
-            z-index: 1;
-            color: white;
-            text-align: center;
-            margin-top: 20vh;
-        }
-    </style> -->
+  
 </head>
 
 
@@ -117,13 +96,10 @@
                     <a href="Investment.html" class="nav-item nav-link">Investment</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <div class="nav-btn px-3 d-flex justify-content-center justify-content-lg-end">
-                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-1 px-3">
+                        <button onclick="downloadVCard()" class="btn btn-primary rounded-pill py-1 px-3">
                             <i class="fa fa-user-plus"></i> Add Contact
                         </button>
                     </div>
-                    
-                    
-                    
             </div>
             <!-- Replaced "Call to Our Experts" section with "Get a Quote" button -->
             <div class="d-none d-xl-flex flex-shrink-0 ps-4">
@@ -136,25 +112,31 @@
     </div>
 </div>
 
-<!-- Script for "Get a Quote" Button Functionality -->
 <script>
-  document.getElementById('getQuoteBtn').addEventListener('click', function() {
-    const vCard = `
-      BEGIN:VCARD
-      VERSION:3.0
-      FN:Bhupendra Mane
-      TEL:6474486229
-      END:VCARD
-    `;
-    const blob = new Blob([vCard], { type: 'text/vcard' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'contact.Bhupendra-Mane.vcf';
-    a.click();
-    URL.revokeObjectURL(url);
-  });
-</script>
+    function downloadVCard() {
+        // WhatsApp-friendly vCard 2.1 format
+        const vCard = [
+            'BEGIN:VCARD',
+            'VERSION:2.1',  // Use older version for better compatibility
+            'N:Mane;Bhupendra;;;',
+            'FN:Bhupendra Mane',
+            'TEL;CELL:+16474486229',  // Must include country code with +
+            'END:VCARD'
+        ].join('\r\n');  // CRLF line endings essential
+
+        // Create download link
+        const blob = new Blob([vCard], { 
+            type: 'text/x-vcard', 
+            endings: 'native' 
+        });
+        
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'Contact_Bhupendra_Mane.vcf';
+        link.click();
+        
+    }
+    </script>
 
 
 
@@ -175,26 +157,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal Search End -->
-
-      <!-- Background Video -->
-      <!-- <video class="background-video" autoplay loop muted playsinline>
-        <source src="video/bgvdo.mp4" type="video/mp4">
-    </video> -->
-
-    <!-- Content -->
-    <!-- <div class="content">
-        <h1>Welcome to Mane Insurance</h1>
-        <p>Your trusted partner for all your insurance needs.</p>
-    </div>
-     -->
-
-
-    
-
-
-<!-- Carousel Start -->
-<!-- Hero Section with Vanta.js Waves Effect -->
+   
 <!-- Full-Page Background Container -->
 <div class="container-fluid p-0 vanta-bg">
     <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -208,20 +171,26 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-8 text-white">
-                                <h1 class="display-4 fw-bold mb-4 animated fadeInDown">
-                                    Your trusted insurance <br>And registered investment partner!
+                                <h1 class="display-4 fw-bold mb-4 animated fadeInDown" style="font-family: 'Playfair Display', serif; letter-spacing: 1px;">
+                                    Your <span  style="font-weight: 900;">Trusted Insurance</span> <br>  
+                                    and <span>Registered Investment Partner!</span>
                                 </h1>
+                                
+                                
                                 <p class="lead animated fadeInUp"
                                  style="font-size: 14px; line-height: 1.4; font-weight: 100;">
                                 At Mane Financial Group, we provide tailored & customized solutions for 
-                                <strong>insurance</strong>, <strong>investment strategies</strong>, and 
-                                <strong>secure financial planning</strong>.
+                                <strong>Insurance</strong>, <strong>Investment strategies</strong>, and 
+                                <strong>Secure Financial planning</strong>.
                                 </p>
 
-                                <h3 style="color: white;">" A plan never fails; we fail to plan"</h3>
+                                <h3 style="color: white;">" A plan never fails, we fail to plan"</h3>
 
-                                <a href="Insurances.html" class="btn btn-lg btn-gradient animated fadeInUp mt-3">
-                                    Explore More <i class="fas fa-arrow-right ms-2"></i>
+                                <!-- <a href="contact.html" class="btn btn-lg btn-gradient animated fadeInUp mt-3">
+                                    Get a Quote <i class="fas fa-arrow-right ms-2"></i>
+                                </a> -->
+                                <a href="about.html" class="btn btn-lg btn-gradient animated fadeInUp mt-3">
+                                    About Us <i class="fas fa-arrow-right ms-2"></i>
                                 </a>
                             </div>
                         </div>
@@ -261,6 +230,58 @@
     document.addEventListener("DOMContentLoaded", setVanta);
     window.addEventListener("resize", setVanta); // Reinitialize on resize
 </script>
+
+
+<!-- Custom Styling -->
+<style>
+    /* Full-Page Background */
+    .vanta-bg {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        overflow: hidden; 
+    overflow-x: hidden; /* Prevents the horizontal scroll */
+    width: 100%; /* Ensures full width */
+}
+
+    
+
+    /* Background Effect */
+    #vanta-container {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; /* Keeps it in the background */
+    }
+
+    /* Centered Content */
+    .carousel-caption {
+        height: 100vh; /* Full height for centering */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+        position: relative;
+        z-index: 2; /* Keeps content above the animation */
+    }
+
+    /* Custom Gradient Button */
+    .btn-gradient {
+        background: linear-gradient(135deg, #0d0927, #130a49);
+        color: white;
+        padding: 10px 30px;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: 0.3s ease-in-out;
+        box-shadow: 0 4px 10px rgba(20, 20, 20, 0.3);
+    }
+
+   
+</style>
 
 <!-- Custom Styling -->
 <style>
@@ -316,6 +337,236 @@
         box-shadow: 0 6px 15px rgba(35, 29, 73, 0.5);
     }
 </style>
+
+
+
+   
+
+
+<section style="text-align: center;">
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 150px; margin: auto; padding-bottom: 20px;">
+        <h4 class="text-primary">Our Services</h4>
+        <!-- <a href="Insurances.html" style="padding: 10px 20px; background: #2C2463; color: #fff; text-decoration: none; border-radius: 5px; transition: 0.3s;">Learn More</a> -->
+    </div>
+
+
+    <div style="position: relative; max-width: 1500px; margin: auto; overflow: hidden;">
+        <button class="slider-btn prev-btn"
+            style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; font-size: 20px; z-index: 10; left: 10px;">
+            &#10094;
+        </button>
+    
+        <div id="serviceSlider"
+            style="display: flex; gap: 10px; transition: transform 0.3s ease-in-out; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; white-space: nowrap;">
+            <!-- Insurance Cards -->
+            <a href="lifeinsurance.html" style="text-decoration: none;">
+                <div class="slide-card">
+                    <img src="img/lifeei.jpeg" alt="img-li" class="slide-img">
+                    <h3>Life Insurance</h3>
+                    <p>Secure your family's future with term & permanent life insurance.</p>
+                </div>
+            </a>
+    
+            <a href="critical.html" style="text-decoration: none;">
+                <div class="slide-card">
+                    <img src="img/critical.png" alt="img-ci" class="slide-img">
+                    <h3>Critical Illness</h3>
+                    <p>Coverage for life-threatening conditions like heart attack & cancer.</p>
+                </div>
+            </a>
+    
+            <a href="disability.html" style="text-decoration: none;">
+                <div class="slide-card">
+                    <img src="img/disability.png" alt="img-disability" class="slide-img">
+                    <h3>Disability Insurance</h3>
+                    <p>Protect your income in case of unexpected illness or injury.</p>
+                </div>
+            </a>
+    
+            <a href="retirement.html" style="text-decoration: none;">
+                <div class="slide-card">
+                    <img src="img/retire.jpg" alt="img-retire" class="slide-img">
+                    <h3>Retirement Plan</h3>
+                    <p>Structured savings & investments for financial security in retirement.</p>
+                </div>
+            </a>
+    
+            <a href="dental.html" style="text-decoration: none;">
+                <div class="slide-card">
+                    <img src="img/h&d.png" alt="img-hd" class="slide-img">
+                    <h3>Health & Dental</h3>
+                    <p>Ensuring coverage for prescriptions & dental care.</p>
+                </div>
+            </a>
+    
+            <a href="supervisa.html" style="text-decoration: none;">
+                <div class="slide-card">
+                    <img src="img/3129535.jpg" alt="img-sv" class="slide-img">
+                    <h3>Super Visa Insurance</h3>
+                    <p>Comprehensive insurance for long-term visitors to Canada.</p>
+                </div>
+            </a>
+        </div>
+    
+        <button class="slider-btn next-btn"
+            style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; font-size: 20px; z-index: 10; right: 10px;">
+            &#10095;
+        </button>
+    </div>
+    
+    <style>
+        .slide-card {
+            min-width: 250px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #2C2463, #3c356b);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .slide-img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-radius: 10px;
+            background-color: white;
+        }
+    
+        .slide-card h3 {
+            font-size: 20px;
+            margin-top: 10px;
+            color: white;
+        }
+    
+        .slide-card p {
+            font-size: 14px;
+            color: white;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+    
+        #serviceSlider {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            white-space: nowrap;
+        }
+    </style>
+    
+<!-- Navigation Buttons -->
+<button class="slider-btn prev-btn" style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; font-size: 20px; z-index: 10; left: 10px; display: none;">&#10094;</button>
+<script>
+    const slider = document.getElementById('serviceSlider');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    let isDown = false, startX, scrollLeft;
+    let autoScrollInterval;
+    const slideWidth = 300; // Adjusted for consistency
+    const scrollSpeed = 3; // Adjusted for smooth scrolling
+
+    function autoScroll() {
+        if (!isDown) {
+            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+                slider.scrollTo({ left: 0, behavior: 'instant' });
+            } else {
+                slider.scrollBy({ left: scrollSpeed, behavior: 'smooth' });
+            }
+        }
+    }
+
+    function startAutoScroll() {
+        stopAutoScroll();
+        autoScrollInterval = setInterval(autoScroll, 50);
+    }
+
+    function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+    }
+
+    // Drag Scroll (Desktop)
+    slider.addEventListener('mousedown', (e) => {
+        stopAutoScroll();
+        isDown = true;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        startAutoScroll();
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        startAutoScroll();
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch Scroll (Mobile)
+    slider.addEventListener('touchstart', (e) => {
+        stopAutoScroll();
+        startX = e.touches[0].pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('touchmove', (e) => {
+        const x = e.touches[0].pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    slider.addEventListener('touchend', startAutoScroll);
+
+    // Button Scroll
+    prevBtn.addEventListener('click', () => {
+        stopAutoScroll();
+        if (slider.scrollLeft === 0) {
+            slider.scrollTo({ left: slider.scrollWidth, behavior: 'instant' });
+        }
+        slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+        setTimeout(startAutoScroll, 2000);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        stopAutoScroll();
+        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+            slider.scrollTo({ left: 0, behavior: 'instant' });
+        }
+        slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+        setTimeout(startAutoScroll, 2000);
+    });
+
+    // Show/Hide Buttons
+    function checkButtons() {
+        prevBtn.style.display = slider.scrollLeft > 0 ? 'block' : 'none';
+        nextBtn.style.display = slider.scrollLeft + slider.clientWidth < slider.scrollWidth ? 'block' : 'none';
+    }
+
+    slider.addEventListener('scroll', checkButtons);
+    window.addEventListener('resize', checkButtons);
+    checkButtons();
+
+    // Start Auto-Scroll on Load
+    document.addEventListener("DOMContentLoaded", startAutoScroll);
+</script>
+
+    
+
+
+
 
 
    <!-- Feature Start -->
@@ -427,239 +678,49 @@
 <script>
     function animateCounters() {
         const counters = document.querySelectorAll(".counter");
-        const maxDuration = 3000; // Time in milliseconds (3 seconds) for all counters to complete
+        const duration = 3000; // 3 seconds
 
         counters.forEach(counter => {
-            const target = +counter.getAttribute("data-target");
-            let count = 0;
-            const increment = target / (maxDuration / 20); // Ensures all finish at same time
-            let startTime = null;
+            function startCount() {
+                let count = 0;
+                const target = +counter.getAttribute("data-target");
+                const increment = target / (duration / 20);
 
-            function updateCount(timestamp) {
-                if (!startTime) startTime = timestamp;
-                let elapsed = timestamp - startTime;
+                function updateCount() {
+                    count += increment;
+                    counter.innerText = Math.min(Math.ceil(count), target);
 
-                if (elapsed < maxDuration) {
-                    count = Math.min(target, Math.ceil((elapsed / maxDuration) * target));
-                    counter.innerText = count;
-                    requestAnimationFrame(updateCount);
-                } else {
-                    counter.innerText = target; // Ensure exact final value
-                    setTimeout(() => {
-                        counter.innerText = "0"; // Reset to zero
-                        startCounters(); // Restart animation
-                    }, 2000); // Wait 2 seconds before restarting
+                    if (count < target) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target;
+                        setTimeout(() => {
+                            counter.innerText = "0"; // Reset to zero
+                            startCount(); // Restart animation
+                        }, 2000); // Wait 2 seconds before restarting
+                    }
                 }
+                updateCount();
             }
 
-            requestAnimationFrame(updateCount);
+            startCount();
         });
     }
 
-    function startCounters() {
-        document.querySelectorAll(".counter").forEach(counter => counter.innerText = "0");
-        animateCounters();
-    }
-
-    // Start counters when the page loads
-    document.addEventListener("DOMContentLoaded", startCounters);
-</script>
-
-<!-- JavaScript for Counter Animation -->
-<script>
-    // Function to animate counters
-    const counters = document.querySelectorAll('[data-toggle="counter-up"]');
-    const speed = 100; // Speed of the animation
-
-    counters.forEach(counter => {
-        const animateCounter = () => {
-            const target = +counter.getAttribute('data-target'); // Target value
-            let count = +counter.innerText; // Current counter value
-
-            // Calculate increment for smooth animation
-            const increment = target / speed;
-
-            // Update counter value incrementally
-            if (count < target) {
-                count = Math.ceil(count + increment); // Increase the counter
-                counter.innerText = count;
-                setTimeout(animateCounter, 10); // Delay for smooth transition
-            } else {
-                counter.innerText = target; // Set to the target value when animation ends
-            }
-        };
-
-        animateCounter(); // Start the animation
-    });
-</script>
-<!-- Facts End -->
-
-<!-- JavaScript for Countdown -->
-<script>
-    // Function to animate counters (for countdown)
-    const countdownCounters = document.querySelectorAll('.counter');
-    const countdownSpeed = 200; // Adjust speed for countdown
-
-    countdownCounters.forEach(counter => {
-        const animateCountdown = () => {
-            const target = +counter.getAttribute('data-target'); // Target value
-            let count = +counter.innerText; // Current counter value
-
-            const increment = target / countdownSpeed;
-
-            // Countdown animation
-            if (count < target) {
-                count = Math.ceil(count + increment); // Increment countdown
-                counter.innerText = count;
-                setTimeout(animateCountdown, 10); // Smooth animation interval
-            } else {
-                counter.innerText = target; // Ensure final value matches target
-            }
-        };
-
-        animateCountdown(); // Start countdown animation
-    });
+    document.addEventListener("DOMContentLoaded", animateCounters);
 </script>
 
 
 
 
 
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    <!-- Service Start -->
-    <!-- <div class="container-xxl service py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Our Services</p>
-                <h1 class="display-5 mb-5">Awesome Financial Services For Business</h1>
-            </div>
-            <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="col-lg-4">
-                    <div class="nav nav-pills d-flex justify-content-between w-100 h-100 me-4">
-                        <button class="nav-link w-100 d-flex align-items-center text-start border p-4 mb-4 active" data-bs-toggle="pill" data-bs-target="#tab-pane-1" type="button">
-                            <h5 class="m-0"><i class="fa fa-bars text-primary me-3"></i>Financial Planning</h5>
-                        </button>
-                        <button class="nav-link w-100 d-flex align-items-center text-start border p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-2" type="button">
-                            <h5 class="m-0"><i class="fa fa-bars text-primary me-3"></i>Cash Investment</h5>
-                        </button>
-                        <button class="nav-link w-100 d-flex align-items-center text-start border p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-3" type="button">
-                            <h5 class="m-0"><i class="fa fa-bars text-primary me-3"></i>Financial Consultancy</h5>
-                        </button>
-                        <button class="nav-link w-100 d-flex align-items-center text-start border p-4 mb-0" data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button">
-                            <h5 class="m-0"><i class="fa fa-bars text-primary me-3"></i>Business Loans</h5>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="tab-content w-100">
-                        <div class="tab-pane fade show active" id="tab-pane-1">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute rounded w-100 h-100" src="img/service-1.jpg"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h3 class="mb-4">25 Years Of Experience In Financial Support</h3>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet.</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Secured Loans</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Credit Facilities</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Cash Advanced</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="tab-pane-2">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute rounded w-100 h-100" src="img/service-2.jpg"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h3 class="mb-4">25 Years Of Experience In Financial Support</h3>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet.</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Secured Loans</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Credit Facilities</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Cash Advanced</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="tab-pane-3">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute rounded w-100 h-100" src="img/service-3.jpg"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h3 class="mb-4">25 Years Of Experience In Financial Support</h3>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet.</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Secured Loans</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Credit Facilities</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Cash Advanced</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="tab-pane-4">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute rounded w-100 h-100" src="img/service-4.jpg"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h3 class="mb-4">25 Years Of Experience In Financial Support</h3>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet.</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Secured Loans</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Credit Facilities</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Cash Advanced</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Service End -->
-
+<!-- Our services -->
     <div class="container-fluid service py-5">
         <div class="container py-5">
             <div class="row justify-content-center align-items-center">
                 <!-- Text Content Section -->
                 <div class="col-12 col-md-6 text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Our Services</h4>
+                    <h4 class="text-primary"></h4>
                     <h1 class="display-4 mb-4">We Provide Best Services</h1>
                     <p class="mb-4">Comprehensive solutions in wealth growth, smart investments, tax efficiency, retirement security, estate transfer, business strategy, insurance protection, debt control, credit enhancement, and financial empowerment.</p>
                     
@@ -673,16 +734,10 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                
-                
-                
             </div>
         </div>
     </div>
-    
-    
 <!-- Service End -->
-
 
 <style>
     /* Method 1: Adding margin-top */
@@ -697,73 +752,110 @@
     }
   </style>
 
-
-
-
     <!-- Callback Start -->
     <div class="container-fluid callback my-5 pt-5">
         <div class="container pt-5">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
-                    <!-- Start of Form -->
-                    <form action="https://api.web3forms.com/submit" method="POST">
-                        <!-- Hidden Access Key for Web3Forms -->
-                        <input type="hidden" name="access_key" value="be233ad0-1ba1-47ee-be4d-c080233da15e">
-    
-                        <div class="bg-white border rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                                <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Get In Touch</p>
-                                <h1 class="display-5 mb-5">Request A Call-Back</h1>
-                            </div>
-                            <div class="row g-3">
-                                <!-- Name Field -->
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-    
-                                <!-- Email Field -->
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="mail" name="email" placeholder="Your Email" required>
-                                        <label for="mail">Your Email</label>
-                                    </div>
-                                </div>
-    
-                                <!-- Mobile Field -->
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Your Mobile" required>
-                                        <label for="mobile">Your Mobile</label>
-                                    </div>
-                                </div>
-    
-                                <!-- Subject Field -->
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
-                                        <label for="subject">Subject</label>
-                                    </div>
-                                </div>
-    
-                                <!-- Message Field -->
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" name="message" placeholder="Leave a message here" id="message" style="height: 100px" required></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-    
-                                <!-- Submit Button -->
-                                <div class="col-12 text-center">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Submit Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- End of Form -->
+                   <!-- Start of Form -->
+<form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+    <!-- Hidden Access Key for Web3Forms -->
+    <input type="hidden" name="access_key" value="be233ad0-1ba1-47ee-be4d-c080233da15e">
+
+    <div class="bg-white border rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Get In Touch</p>
+            <h1 class="display-5 mb-5">Request A Call-Back</h1>
+        </div>
+        <div class="row g-3">
+            <!-- Name Field -->
+            <div class="col-sm-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                    <label for="name">Your Name</label>
+                </div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="col-sm-6">
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="mail" name="email" placeholder="Your Email" required>
+                    <label for="mail">Your Email</label>
+                    <small id="emailError" style="color: red; display: none;">Invalid email</small>
+                </div>
+            </div>
+
+            <!-- Mobile Field -->
+            <div class="col-sm-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Your Mobile" required>
+                    <label for="mobile">Your Mobile</label>
+                    <small id="phoneError" style="color: red; display: none;">Invalid phone number</small>
+                </div>
+            </div>
+
+            <!-- Subject Field -->
+            <div class="col-sm-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                    <label for="subject">Subject</label>
+                </div>
+            </div>
+
+            <!-- Message Field -->
+            <div class="col-12">
+                <div class="form-floating">
+                    <textarea class="form-control" name="message" placeholder="Leave a message here" id="message" style="height: 100px" required></textarea>
+                    <label for="message">Message</label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-12 text-center">
+                <button class="btn btn-primary w-100 py-3" type="submit">Submit Now</button>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- End of Form -->
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        const email = document.getElementById("mail").value;
+        const phone = document.getElementById("mobile").value;
+        const emailError = document.getElementById("emailError");
+        const phoneError = document.getElementById("phoneError");
+
+        // Improved Email Validation: Must contain at least one number & follow proper format
+        const emailPattern = /^(?=.*\d)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        // Phone Validation: 10-digit number starting with 6-9
+        const phonePattern = /^[6-9]\d{9}$/;
+
+        let isValid = true;
+
+        // Email Validation
+        if (!emailPattern.test(email)) {
+            emailError.style.display = "block";
+            isValid = false;
+        } else {
+            emailError.style.display = "none";
+        }
+
+        // Phone Number Validation
+        if (!phonePattern.test(phone)) {
+            phoneError.style.display = "block";
+            isValid = false;
+        } else {
+            phoneError.style.display = "none";
+        }
+
+        // Prevent Form Submission if Invalid
+        if (!isValid) {
+            event.preventDefault();
+            alert("Invalid phone number or email. Please correct the errors.");
+        }
+    });
+</script>
                 </div>
             </div>
         </div>
@@ -816,7 +908,6 @@
         Learn More <i class="fa fa-arrow-right"></i>
     </a>
 </div>
-
                                 </div>
                             </div>
                         </div>
@@ -844,242 +935,88 @@
     <!-- Features End -->
 
 
-
-    <!-- Projects Start -->
-    <!-- <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Our Projects</p>
-                <h1 class="display-5 mb-5">We Have Completed Latest Projects</h1>
-            </div>
-            <div class="owl-carousel project-carousel wow fadeInUp" data-wow-delay="0.3s">
-                <div class="project-item pe-5 pb-5">
-                    <div class="project-img mb-3">
-                        <img class="img-fluid rounded" src="img/service-1.jpg" alt="">
-                        <a href=""><i class="fa fa-link fa-3x text-primary"></i></a>
-                    </div>
-                    <div class="project-title">
-                        <h4 class="mb-0">Financial Planning</h4>
-                    </div>
-                </div>
-                <div class="project-item pe-5 pb-5">
-                    <div class="project-img mb-3">
-                        <img class="img-fluid rounded" src="img/service-2.jpg" alt="">
-                        <a href=""><i class="fa fa-link fa-3x text-primary"></i></a>
-                    </div>
-                    <div class="project-title">
-                        <h4 class="mb-0">Cash Investment</h4>
-                    </div>
-                </div>
-                <div class="project-item pe-5 pb-5">
-                    <div class="project-img mb-3">
-                        <img class="img-fluid rounded" src="img/service-3.jpg" alt="">
-                        <a href=""><i class="fa fa-link fa-3x text-primary"></i></a>
-                    </div>
-                    <div class="project-title">
-                        <h4 class="mb-0">Financial Consultancy</h4>
-                    </div>
-                </div>
-                <div class="project-item pe-5 pb-5">
-                    <div class="project-img mb-3">
-                        <img class="img-fluid rounded" src="img/service-4.jpg" alt="">
-                        <a href=""><i class="fa fa-link fa-3x text-primary"></i></a>
-                    </div>
-                    <div class="project-title">
-                        <h4 class="mb-0">Business Loans</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Projects End -->
-
-
-    <!-- Team Start -->
-    <!-- <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Our Team</p>
-                <h1 class="display-5 mb-5">Exclusive Team</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <img class="img-fluid rounded" src="img/team-1.jpg" alt="">
-                        <div class="team-text">
-                            <h4 class="mb-0">Kate Winslet</h4>
-                            <div class="team-social d-flex">
-                                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item">
-                        <img class="img-fluid rounded" src="img/team-2.jpg" alt="">
-                        <div class="team-text">
-                            <h4 class="mb-0">Jac Jacson</h4>
-                            <div class="team-social d-flex">
-                                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item">
-                        <img class="img-fluid rounded" src="img/team-3.jpg" alt="">
-                        <div class="team-text">
-                            <h4 class="mb-0">Doris Jordan</h4>
-                            <div class="team-social d-flex">
-                                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Team End -->
-
-
-    <!-- Testimonial Start -->
-    <!-- <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Testimonial</p>
-                <h1 class="display-5 mb-5">What Our Clients Say!</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.3s">
-                <div class="testimonial-item">
-                    <div class="testimonial-text border rounded p-4 pt-5 mb-5">
-                        <div class="btn-square bg-white border rounded-circle">
-                            <i class="fa fa-quote-right fa-2x text-primary"></i>
-                        </div>
-                        Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.
-                    </div>
-                    <img class="rounded-circle mb-3" src="img/testimonial-1.jpg" alt="">
-                    <h4>Client Name</h4>
-                    <span>Profession</span>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-text border rounded p-4 pt-5 mb-5">
-                        <div class="btn-square bg-white border rounded-circle">
-                            <i class="fa fa-quote-right fa-2x text-primary"></i>
-                        </div>
-                        Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.
-                    </div>
-                    <img class="rounded-circle mb-3" src="img/testimonial-2.jpg" alt="">
-                    <h4>Client Name</h4>
-                    <span>Profession</span>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-text border rounded p-4 pt-5 mb-5">
-                        <div class="btn-square bg-white border rounded-circle">
-                            <i class="fa fa-quote-right fa-2x text-primary"></i>
-                        </div>
-                        Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.
-                    </div>
-                    <img class="rounded-circle mb-3" src="img/testimonial-3.jpg" alt="">
-                    <h4>Client Name</h4>
-                    <span>Profession</span>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-text border rounded p-4 pt-5 mb-5">
-                        <div class="btn-square bg-white border rounded-circle">
-                            <i class="fa fa-quote-right fa-2x text-primary"></i>
-                        </div>
-                        Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.
-                    </div>
-                    <img class="rounded-circle mb-3" src="img/testimonial-4.jpg" alt="">
-                    <h4>Client Name</h4>
-                    <span>Profession</span>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Testimonial End -->
-
-
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Our Office</h4>
-
-                    <p class="mb-2">
-                        <i class="fa fa-map-marker-alt me-3"></i>
-                        <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
-                            Address
-                        </a>
-                    </p>
-                    
-                    <p class="mb-2">
-                        <i class="fa fa-phone-alt me-3"></i>
-                        <a href="tel:6474486229" style="color: inherit; text-decoration: none;">
-                            647-448-6229
-                        </a>
-                    </p>
-                    
-                    <p class="mb-2">
-                        <i class="fa fa-envelope me-3"></i>
-                        <a href="mailto:info@maneinsurance.ca" style="color: inherit; text-decoration: none;">
-                            info@maneinsurance.ca
-                        </a>
-                    </p>
-                    
-                    
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100090433074108"><i class="fab fa-facebook-f"></i></a>
+                    <h4 class="text-white mb-4 d-flex flex-column align-items-start">Our Office</h4>
                 
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://www.linkedin.com/in/bhupendramane/"><i class="fab fa-linkedin-in"></i></a>
+                    <div class="d-flex flex-column align-items-start">
+                        <p class="mb-2 d-flex align-items-center">
+                            <i class="fa fa-map-marker-alt me-2"></i>
+                            <a href="https://maps.app.goo.gl/BBtrDNVJ76ySqaLu5" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none">
+                                Address
+                            </a>
+                        </p>
+                        
+                        <p class="mb-2 d-flex align-items-center">
+                            <i class="fa fa-phone-alt me-2"></i>
+                            <a href="tel:6474486229" class="text-light text-decoration-none">
+                                647-448-6229
+                            </a>
+                        </p>
+                        
+                        <p class="mb-2 d-flex align-items-center">
+                            <i class="fa fa-envelope me-2"></i>
+                            <a href="mailto:info@maneinsurance.ca" class="text-light text-decoration-none">
+                                info@maneinsurance.ca
+                            </a>
+                        </p>
+                    </div>
                 
-                        <!-- WhatsApp icon added -->
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://wa.me/+16474486229" target="_blank">
+                    <div class="d-flex pt-3">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100090433074108">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://www.linkedin.com/in/bhupendramane/">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                
+                        <a class="btn btn-square btn-outline-light rounded-circle" href="https://wa.me/+16474486229" target="_blank">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
                 
+                
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Insurance Services</h4>
-            
-
-                <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
-                <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
-                <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
-                  </div>
-            
-                  
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="index.html">Home</a>
-                    <a class="btn btn-link" href="about.html">About</a>
-                    <a class="btn btn-link" href="Investment.html">Investment</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
-                    <a class="btn btn-link" href="terms.html">Terms & Condition</a>
-
+                    <h4 class="text-white mb-4 d-flex flex-column align-items-start">Insurance Services</h4>
+                    <div class="d-flex flex-column">
+                        <a class="btn btn-link text-light text-decoration-none" href="lifeinsurance.html">Life Insurance (Life and Permanent)</a>
+                        <a class="btn btn-link text-light text-decoration-none" href="critical.html">Critical Illness Insurance</a>
+                        <a class="btn btn-link text-light text-decoration-none" href="disability.html">Disability Insurance</a>
+                        <a class="btn btn-link text-light text-decoration-none" href="retirement.html">Estate / Retirement Plan Strategy</a>
+                        <a class="btn btn-link text-light text-decoration-none" href="dental.html">Health & Dental Insurance</a>
+                        <a class="btn btn-link text-light text-decoration-none" href="supervisa.html">Super Visa and Visitor Insurance</a>
+                    </div>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4 d-flex flex-column align-items-start">Quick Links</h4>
+                    <div class="d-flex flex-column">
+                        <a class="btn btn-link text-light text-decoration-none" href="index.html">Home</a>
+                        <a class="btn btn-link text-light text-decoration-none" href="about.html">About</a>
+                        <a class="btn btn-link text-light text-decoration-none" href="Insurances.html">Insurance Services</a>
+                        <a class="btn btn-link text-light text-decoration-none" href="Investment.html">Investment</a>
+                        <a class="btn btn-link text-light text-decoration-none" href="contact.html">Contact Us</a>
+                        <a class="btn btn-link text-light text-decoration-none" href="terms.html">Terms & Conditions</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 text-start">
                     <h4 class="text-white mb-4">Insurance Tips</h4>
-                    <p>Stay informed with valuable insurance insights and financial tips to secure your future.</p>
+                    <p class="text-light">
+                        Stay informed with valuable insurance insights and financial tips to secure your future.
+                    </p>
                     <ul class="list-unstyled">
-                        <li><a class="text-white" href="contact.html">How to choose the right policy</a></li>
-                        <li><a class="text-white" href="contact.html">Understanding premiums & coverage</a></li>
-                        <li><a class="text-white" href="contact.html">Saving money on insurance</a></li>
+                        <li><a class="text-white text-decoration-none" href="contact.html">How to choose the right policy</a></li>
+                        <li><a class="text-white text-decoration-none" href="contact.html">Understanding premiums & coverage</a></li>
+                        <li><a class="text-white text-decoration-none" href="contact.html">Saving money on insurance</a></li>
                     </ul>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -1095,18 +1032,16 @@
                 </div>
                 <!-- <div class="col-md-6 text-center text-md-end">
                     /*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                  
-                </div>
+                   
+                </div> 
             </div>
         </div>
     </div>
     <!-- Copyright End -->
 
 
- <!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
-    <i class="bi bi-arrow-up"></i>
-</a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
 
