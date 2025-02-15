@@ -464,47 +464,65 @@
 </script>
     
     <style>
-        .slide-card {
-            min-width: 250px;
-            flex-shrink: 0;
-            background: linear-gradient(135deg, #2C2463, #3c356b);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-    
-        .slide-img {
-            width: 100%;
-            height: 250px;
-            object-fit: contain;
-            border-radius: 10px;
-            background-color: white;
-        }
-    
-        .slide-card h3 {
-            font-size: 20px;
-            margin-top: 10px;
-            color: white;
-        }
-    
-        .slide-card p {
-            font-size: 14px;
-            color: white;
-            opacity: 0.9;
-            margin-top: 5px;
-        }
-    
-        #serviceSlider {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            white-space: nowrap;
-        }
+        /* Equal-sized cards with enough space for text & image */
+.slide-card {
+    width: 250px; /* Fixed width for uniformity */
+    height: 380px; /* Increased height to fit content */
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #2C2463, #3c356b);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Ensures images are fully visible */
+.slide-img {
+    width: 100%;
+    height: 180px; /* Adjusted height to prevent cropping */
+    object-fit: contain; /* Ensures image scales properly */
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* Title styling */
+.slide-card h3 {
+    font-size: 18px;
+    color: white;
+    margin: 10px 0 5px 0;
+    white-space: normal; /* Allows text wrapping */
+}
+
+/* Description styling */
+.slide-card p {
+    font-size: 14px;
+    color: white;
+    opacity: 0.9;
+    margin-top: 5px;
+    white-space: normal; /* Prevents text from being cut */
+}
+
+/* Ensure slider layout is correct */
+#serviceSlider {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    white-space: nowrap;
+    padding: 10px 0;
+}
+
+/* Hide scrollbar for a smooth experience */
+#serviceSlider::-webkit-scrollbar {
+    display: none;
+}
+
     </style>
     
 <!-- Navigation Buttons -->
