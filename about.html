@@ -88,7 +88,7 @@
                     <a href="Investment.html" class="nav-item nav-link">Investment</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <div class="nav-btn px-3 d-flex justify-content-center justify-content-lg-end">
-                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-1 px-3">
+                        <button onclick="downloadVCard()" class="btn btn-primary rounded-pill py-1 px-3">
                             <i class="fa fa-user-plus"></i> Add Contact
                         </button>
                     </div>
@@ -108,23 +108,31 @@
 </div>
 <!-- Script for "Get a Quote" Button Functionality -->
 <script>
-  document.getElementById('getQuoteBtn').addEventListener('click', function() {
-    const vCard = `
-      BEGIN:VCARD
-      VERSION:3.0
-      FN:Bhupendra Mane
-      TEL:6474486229
-      END:VCARD
-    `;
-    const blob = new Blob([vCard], { type: 'text/vcard' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'contact.Bhupendra-Mane.vcf';
-    a.click();
-    URL.revokeObjectURL(url);
-  });
-</script>
+    function downloadVCard() {
+        // WhatsApp-friendly vCard 2.1 format
+        const vCard = [
+            'BEGIN:VCARD',
+            'VERSION:2.1',  // Use older version for better compatibility
+            'N:Mane;Bhupendra;;;',
+            'FN:Bhupendra Mane',
+            'TEL;CELL:+16474486229',  // Must include country code with +
+            'END:VCARD'
+        ].join('\r\n');  // CRLF line endings essential
+
+        // Create download link
+        const blob = new Blob([vCard], { 
+            type: 'text/x-vcard', 
+            endings: 'native' 
+        });
+        
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'Contact_Bhupendra_Mane.vcf';
+        link.click();
+        
+      
+    }
+    </script>
 
 <!-- Modal Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -366,43 +374,38 @@
 <script>
     function animateCounters() {
         const counters = document.querySelectorAll(".counter");
-        const maxDuration = 3000; // Time in milliseconds (3 seconds) for all counters to complete
+        const duration = 3000; // 3 seconds
 
         counters.forEach(counter => {
-            const target = +counter.getAttribute("data-target");
-            let count = 0;
-            const increment = target / (maxDuration / 20); // Ensures all finish at same time
-            let startTime = null;
+            function startCount() {
+                let count = 0;
+                const target = +counter.getAttribute("data-target");
+                const increment = target / (duration / 20);
 
-            function updateCount(timestamp) {
-                if (!startTime) startTime = timestamp;
-                let elapsed = timestamp - startTime;
+                function updateCount() {
+                    count += increment;
+                    counter.innerText = Math.min(Math.ceil(count), target);
 
-                if (elapsed < maxDuration) {
-                    count = Math.min(target, Math.ceil((elapsed / maxDuration) * target));
-                    counter.innerText = count;
-                    requestAnimationFrame(updateCount);
-                } else {
-                    counter.innerText = target; // Ensure exact final value
-                    setTimeout(() => {
-                        counter.innerText = "0"; // Reset to zero
-                        startCounters(); // Restart animation
-                    }, 2000); // Wait 2 seconds before restarting
+                    if (count < target) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target;
+                        setTimeout(() => {
+                            counter.innerText = "0"; // Reset to zero
+                            startCount(); // Restart animation
+                        }, 2000); // Wait 2 seconds before restarting
+                    }
                 }
+                updateCount();
             }
 
-            requestAnimationFrame(updateCount);
+            startCount();
         });
     }
 
-    function startCounters() {
-        document.querySelectorAll(".counter").forEach(counter => counter.innerText = "0");
-        animateCounters();
-    }
-
-    // Start counters when the page loads
-    document.addEventListener("DOMContentLoaded", startCounters);
+    document.addEventListener("DOMContentLoaded", animateCounters);
 </script>
+
 
 
 
@@ -454,64 +457,105 @@
         <div class="row justify-content-center">
             <div class="col-lg-7">
                 <!-- Start of Form -->
-                <form action="https://api.web3forms.com/submit" method="POST">
-                    <!-- Hidden Access Key for Web3Forms -->
-                    <input type="hidden" name="access_key" value="be233ad0-1ba1-47ee-be4d-c080233da15e">
+                <!-- Start of Form -->
+<form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+    <!-- Hidden Access Key for Web3Forms -->
+    <input type="hidden" name="access_key" value="be233ad0-1ba1-47ee-be4d-c080233da15e">
 
-                    <div class="bg-white border rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                            <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Get In Touch</p>
-                            <h1 class="display-5 mb-5">Request A Call-Back</h1>
-                        </div>
-                        <div class="row g-3">
-                            <!-- Name Field -->
-                            <div class="col-sm-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
+    <div class="bg-white border rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Get In Touch</p>
+            <h1 class="display-5 mb-5">Request A Call-Back</h1>
+        </div>
+        <div class="row g-3">
+            <!-- Name Field -->
+            <div class="col-sm-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                    <label for="name">Your Name</label>
+                </div>
+            </div>
 
-                            <!-- Email Field -->
-                            <div class="col-sm-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="mail" name="email" placeholder="Your Email" required>
-                                    <label for="mail">Your Email</label>
-                                </div>
-                            </div>
+            <!-- Email Field -->
+            <div class="col-sm-6">
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="mail" name="email" placeholder="Your Email" required>
+                    <label for="mail">Your Email</label>
+                    <small id="emailError" style="color: red; display: none;">Invalid email</small>
+                </div>
+            </div>
 
-                            <!-- Mobile Field -->
-                            <div class="col-sm-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Your Mobile" required>
-                                    <label for="mobile">Your Mobile</label>
-                                </div>
-                            </div>
+            <!-- Mobile Field -->
+            <div class="col-sm-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Your Mobile" required>
+                    <label for="mobile">Your Mobile</label>
+                    <small id="phoneError" style="color: red; display: none;">Invalid phone number</small>
+                </div>
+            </div>
 
-                            <!-- Subject Field -->
-                            <div class="col-sm-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
-                                    <label for="subject">Subject</label>
-                                </div>
-                            </div>
+            <!-- Subject Field -->
+            <div class="col-sm-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                    <label for="subject">Subject</label>
+                </div>
+            </div>
 
-                            <!-- Message Field -->
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" name="message" placeholder="Leave a message here" id="message" style="height: 100px" required></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-                            </div>
+            <!-- Message Field -->
+            <div class="col-12">
+                <div class="form-floating">
+                    <textarea class="form-control" name="message" placeholder="Leave a message here" id="message" style="height: 100px" required></textarea>
+                    <label for="message">Message</label>
+                </div>
+            </div>
 
-                            <!-- Submit Button -->
-                            <div class="col-12 text-center">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Submit Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <!-- End of Form -->
+            <!-- Submit Button -->
+            <div class="col-12 text-center">
+                <button class="btn btn-primary w-100 py-3" type="submit">Submit Now</button>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- End of Form -->
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        const email = document.getElementById("mail").value;
+        const phone = document.getElementById("mobile").value;
+        const emailError = document.getElementById("emailError");
+        const phoneError = document.getElementById("phoneError");
+
+        // Improved Email Validation: Must contain at least one number & follow proper format
+        const emailPattern = /^(?=.*\d)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        // Phone Validation: 10-digit number starting with 6-9
+        const phonePattern = /^[6-9]\d{9}$/;
+
+        let isValid = true;
+
+        // Email Validation
+        if (!emailPattern.test(email)) {
+            emailError.style.display = "block";
+            isValid = false;
+        } else {
+            emailError.style.display = "none";
+        }
+
+        // Phone Number Validation
+        if (!phonePattern.test(phone)) {
+            phoneError.style.display = "block";
+            isValid = false;
+        } else {
+            phoneError.style.display = "none";
+        }
+
+        // Prevent Form Submission if Invalid
+        if (!isValid) {
+            event.preventDefault();
+            alert("Invalid phone number or email. Please correct the errors.");
+        }
+    });
+</script>
             </div>
         </div>
     </div>
@@ -614,24 +658,23 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Insurance Services</h4>
             
-
-                <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
-                <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
-                <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
+    
+                <a class="btn btn-link" href="lifeinsurance.html">Life Insurance (Life and Permanent)</a>
+                <a class="btn btn-link" href="critical.html">Critical illness Insurance</a>
+                <a class="btn btn-link" href="disability.html">Disability insurance</a>
+                <a class="btn btn-link" href="retirement.html">Eastate / Retirement Plan Strategy</a>
+                <a class="btn btn-link" href="dental.html">Health & Dental Insurance</a>
+                <a class="btn btn-link" href="supervisa.html">Super Visa and Visitor Insurance</a>
                   </div>
-            
                   
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Quick Links</h4>
                     <a class="btn btn-link" href="index.html">Home</a>
                     <a class="btn btn-link" href="about.html">About</a>
+                    <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
                     <a class="btn btn-link" href="Investment.html">Investment</a>
                     <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
-                    <a class="btn btn-link" href="terms.html">Terms & Condition</a>
+                    <a class="btn btn-link" href="terms.html">Terms & Conditions</a>
 
                 </div>
                 
