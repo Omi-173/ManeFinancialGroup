@@ -342,77 +342,122 @@
 
    
 
+<div style="position: relative; width: 100%;">
+    <button class="slider-btn prev-btn"
+        style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; font-size: 20px; z-index: 10; left: 10px;">
+        &#10094;
+    </button>
+<div id="serviceSlider"
+    style="display: flex; gap: 10px; transition: transform 0.3s ease-in-out; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; white-space: nowrap; padding: 10px;">
 
-<section style="text-align: center;">
-    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 150px; margin: auto; padding-bottom: 20px;">
-        <h4 class="text-primary">Our Services</h4>
-        <!-- <a href="Insurances.html" style="padding: 10px 20px; background: #2C2463; color: #fff; text-decoration: none; border-radius: 5px; transition: 0.3s;">Learn More</a> -->
-    </div>
+    <!-- Insurance Cards -->
+    <a href="lifeinsurance.html" style="text-decoration: none;">
+        <div class="slide-card"
+            style="min-width: 250px; padding: 15px; border-radius: 10px; text-align: center; background: rgb(14, 9, 84); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+            
+            <img src="img/lifeei.jpeg" alt="img-li" class="slide-img"
+                style="width: 100%; height: 200px; object-fit: contain; border-radius: 10px;">
 
-
-    <div style="position: relative; max-width: 1500px; margin: auto; overflow: hidden;">
-        <button class="slider-btn prev-btn"
-            style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; font-size: 20px; z-index: 10; left: 10px;">
-            &#10094;
-        </button>
-    
-        <div id="serviceSlider"
-            style="display: flex; gap: 10px; transition: transform 0.3s ease-in-out; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; white-space: nowrap;">
-            <!-- Insurance Cards -->
-            <a href="lifeinsurance.html" style="text-decoration: none;">
-                <div class="slide-card">
-                    <img src="img/lifeei.jpeg" alt="img-li" class="slide-img">
-                    <h3>Life Insurance</h3>
-                    <p>Secure your family's future with term & permanent life insurance.</p>
-                </div>
-            </a>
-    
-            <a href="critical.html" style="text-decoration: none;">
-                <div class="slide-card">
-                    <img src="img/critical.png" alt="img-ci" class="slide-img">
-                    <h3>Critical Illness</h3>
-                    <p>Coverage for life-threatening conditions like heart attack & cancer.</p>
-                </div>
-            </a>
-    
-            <a href="disability.html" style="text-decoration: none;">
-                <div class="slide-card">
-                    <img src="img/disability.png" alt="img-disability" class="slide-img">
-                    <h3>Disability Insurance</h3>
-                    <p>Protect your income in case of unexpected illness or injury.</p>
-                </div>
-            </a>
-    
-            <a href="retirement.html" style="text-decoration: none;">
-                <div class="slide-card">
-                    <img src="img/retire.jpg" alt="img-retire" class="slide-img">
-                    <h3>Retirement Plan</h3>
-                    <p>Structured savings & investments for financial security in retirement.</p>
-                </div>
-            </a>
-    
-            <a href="dental.html" style="text-decoration: none;">
-                <div class="slide-card">
-                    <img src="img/h&d.png" alt="img-hd" class="slide-img">
-                    <h3>Health & Dental</h3>
-                    <p>Ensuring coverage for prescriptions & dental care.</p>
-                </div>
-            </a>
-    
-            <a href="supervisa.html" style="text-decoration: none;">
-                <div class="slide-card">
-                    <img src="img/3129535.jpg" alt="img-sv" class="slide-img">
-                    <h3>Super Visa Insurance</h3>
-                    <p>Comprehensive insurance for long-term visitors to Canada.</p>
-                </div>
-            </a>
+            <h3 style="font-size: 18px; color: rgb(240, 236, 236); margin-top: 10px;">Life Insurance</h3>
+            <p style="font-size: 14px; color: rgb(255, 250, 250); opacity: 0.8; margin-top: 5px;">Secure your family's future with term & permanent life insurance.</p>
         </div>
+    </a>
+
+    <a href="critical.html" style="text-decoration: none;">
+        <div class="slide-card"
+            style="min-width: 250px; padding: 15px; border-radius: 10px; text-align: center; background: rgb(14, 9, 84); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+            
+            <img src="img/critical.png" alt="img-ci" class="slide-img"
+                style="width: 100%; height: 200px; object-fit: contain; border-radius: 10px;">
+
+            <h3 style="font-size: 18px; color: rgb(240, 236, 236); margin-top: 10px;">Critical Illness</h3>
+            <p style="font-size: 14px; color: rgb(255, 250, 250) 0.8; margin-top: 5px;">Coverage for life-threatening conditions like heart attack & cancer.</p>
+        </div>
+    </a>
+
+    <a href="disability.html" style="text-decoration: none;">
+        <div class="slide-card"
+            style="min-width: 250px; padding: 15px; border-radius: 10px; text-align: center; background: rgb(14, 9, 84); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+            
+            <img src="img/disability.png" alt="img-disability" class="slide-img"
+                style="width: 100%; height: 200px; object-fit: contain; border-radius: 10px;">
+
+            <h3 style="font-size: 18px; color:  rgb(240, 236, 236); margin-top: 10px;">Disability Insurance</h3>
+            <p style="font-size: 14px; color: rgb(255, 250, 250); opacity: 0.8; margin-top: 5px;">Protect your income in case of unexpected illness or injury.</p>
+        </div>
+    </a>
+
+    <a href="retirement.html" style="text-decoration: none;">
+        <div class="slide-card"
+            style="min-width: 250px; padding: 15px; border-radius: 10px; text-align: center; background: rgb(14, 9, 84); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+            
+            <img src="img/retire.jpg" alt="img-retire" class="slide-img"
+                style="width: 100%; height: 200px; object-fit: contain; border-radius: 10px;">
+
+            <h3 style="font-size: 18px; color:  rgb(240, 236, 236); margin-top: 10px;">Retirement Plan</h3>
+            <p style="font-size: 14px; color: rgb(255, 250, 250); opacity: 0.8; margin-top: 5px;">Structured savings & investments for financial security in retirement.</p>
+        </div>
+    </a>
+
+    <a href="dental.html" style="text-decoration: none;">
+        <div class="slide-card"
+            style="min-width: 250px; padding: 15px; border-radius: 10px; text-align: center; background: rgb(14, 9, 84); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+            
+            <img src="img/h&d.png" alt="img-hd" class="slide-img"
+                style="width: 100%; height: 200px; object-fit: contain; border-radius: 10px;">
+
+            <h3 style="font-size: 18px; color: rgb(240, 236, 236); margin-top: 10px;">Health & Dental</h3>
+            <p style="font-size: 14px; color: rgb(255, 250, 250); opacity: 0.8; margin-top: 5px;">Ensuring coverage for prescriptions & dental care.</p>
+        </div>
+    </a>
+
+    <a href="supervisa.html" style="text-decoration: none;">
+        <div class="slide-card"
+            style="min-width: 250px; padding: 15px; border-radius: 10px; text-align: center; background: rgb(14, 9, 84); box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+            
+            <img src="img/3129535.jpg" alt="img-sv" class="slide-img"
+                style="width: 100%; height: 200px; object-fit: contain; border-radius: 10px;">
+
+            <h3 style="font-size: 18px; color:  rgb(240, 236, 236); margin-top: 10px;">Super Visa Insurance</h3>
+            <p style="font-size: 14px; color: rgb(255, 250, 250); opacity: 0.8; margin-top: 5px;">Comprehensive insurance for long-term visitors to Canada.</p>
+        </div>
+    </a>
+</div>
+
+<button class="slider-btn next-btn"
+        style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; font-size: 20px; z-index: 10; right: 10px;">
+        &#10095;
+    </button>
+</div>
+<script>
+    function adjustSliderForMobile() {
+        const cards = document.querySelectorAll('.slide-card');
+        if (window.innerWidth <= 768) {
+            cards.forEach(card => {
+                card.style.minWidth = "200px";
+                card.style.padding = "10px";
+                card.querySelector("img").style.height = "150px";
+                card.querySelector("h3").style.fontSize = "16px";
+                card.querySelector("p").style.fontSize = "12px";
+            });
+        } else {
+            cards.forEach(card => {
+                card.style.minWidth = "250px";
+                card.style.padding = "15px";
+                card.querySelector("img").style.height = "200px";
+                card.querySelector("h3").style.fontSize = "18px";
+                card.querySelector("p").style.fontSize = "14px";
+            });
+        }
+    }
+
+
     
-        <button class="slider-btn next-btn"
-            style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; font-size: 20px; z-index: 10; right: 10px;">
-            &#10095;
-        </button>
-    </div>
+
+    // Adjust on load and resize
+    window.onload = adjustSliderForMobile;
+    window.onresize = adjustSliderForMobile;
+</script>
     
     <style>
         .slide-card {
@@ -461,103 +506,67 @@
 <!-- Navigation Buttons -->
 <button class="slider-btn prev-btn" style="position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; font-size: 20px; z-index: 10; left: 10px; display: none;">&#10094;</button>
 <script>
-    const slider = document.getElementById('serviceSlider');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
+   const slider = document.getElementById('serviceSlider');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
 
-    let isDown = false, startX, scrollLeft;
-    let autoScrollInterval;
-    const slideWidth = 300; // Adjusted for consistency
-    const scrollSpeed = 3; // Adjusted for smooth scrolling
+let isDown = false, startX, scrollLeft;
+const slideWidth = 300; // Adjusted for consistency
 
-    function autoScroll() {
-        if (!isDown) {
-            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-                slider.scrollTo({ left: 0, behavior: 'instant' });
-            } else {
-                slider.scrollBy({ left: scrollSpeed, behavior: 'smooth' });
-            }
-        }
-    }
+// Drag Scroll (Desktop)
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
 
-    function startAutoScroll() {
-        stopAutoScroll();
-        autoScrollInterval = setInterval(autoScroll, 50);
-    }
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+});
 
-    function stopAutoScroll() {
-        clearInterval(autoScrollInterval);
-    }
+slider.addEventListener('mouseup', () => {
+    isDown = false;
+});
 
-    // Drag Scroll (Desktop)
-    slider.addEventListener('mousedown', (e) => {
-        stopAutoScroll();
-        isDown = true;
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
+slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    slider.scrollLeft = scrollLeft - walk;
+});
 
-    slider.addEventListener('mouseleave', () => {
-        isDown = false;
-        startAutoScroll();
-    });
+// Touch Scroll (Mobile)
+slider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
 
-    slider.addEventListener('mouseup', () => {
-        isDown = false;
-        startAutoScroll();
-    });
+slider.addEventListener('touchmove', (e) => {
+    const x = e.touches[0].pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    slider.scrollLeft = scrollLeft - walk;
+});
 
-    slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        slider.scrollLeft = scrollLeft - walk;
-    });
+// Button Scroll
+prevBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+});
 
-    // Touch Scroll (Mobile)
-    slider.addEventListener('touchstart', (e) => {
-        stopAutoScroll();
-        startX = e.touches[0].pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
+nextBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+});
 
-    slider.addEventListener('touchmove', (e) => {
-        const x = e.touches[0].pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        slider.scrollLeft = scrollLeft - walk;
-    });
+// Show/Hide Buttons
+function checkButtons() {
+    prevBtn.style.display = slider.scrollLeft > 0 ? 'block' : 'none';
+    nextBtn.style.display = slider.scrollLeft + slider.clientWidth < slider.scrollWidth ? 'block' : 'none';
+}
 
-    slider.addEventListener('touchend', startAutoScroll);
+slider.addEventListener('scroll', checkButtons);
+window.addEventListener('resize', checkButtons);
+checkButtons();
 
-    // Button Scroll
-    prevBtn.addEventListener('click', () => {
-        stopAutoScroll();
-        if (slider.scrollLeft === 0) {
-            slider.scrollTo({ left: slider.scrollWidth, behavior: 'instant' });
-        }
-        slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
-        setTimeout(startAutoScroll, 2000);
-    });
-
-    nextBtn.addEventListener('click', () => {
-        stopAutoScroll();
-        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-            slider.scrollTo({ left: 0, behavior: 'instant' });
-        }
-        slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
-        setTimeout(startAutoScroll, 2000);
-    });
-
-    // Show/Hide Buttons
-    function checkButtons() {
-        prevBtn.style.display = slider.scrollLeft > 0 ? 'block' : 'none';
-        nextBtn.style.display = slider.scrollLeft + slider.clientWidth < slider.scrollWidth ? 'block' : 'none';
-    }
-
-    slider.addEventListener('scroll', checkButtons);
-    window.addEventListener('resize', checkButtons);
-    checkButtons();
 
     // Start Auto-Scroll on Load
     document.addEventListener("DOMContentLoaded", startAutoScroll);
