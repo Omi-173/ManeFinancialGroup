@@ -91,7 +91,7 @@
                     <a href="Investment.html" class="nav-item nav-link">Investment</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <div class="nav-btn px-3 d-flex justify-content-center justify-content-lg-end">
-                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-1 px-3">
+                        <button onclick="downloadVCard()" class="btn btn-primary rounded-pill py-1 px-3">
                             <i class="fa fa-user-plus"></i> Add Contact
                         </button>
                     </div>
@@ -112,23 +112,31 @@
 
 <!-- Script for "Get a Quote" Button Functionality -->
 <script>
-  document.getElementById('getQuoteBtn').addEventListener('click', function() {
-    const vCard = `
-      BEGIN:VCARD
-      VERSION:3.0
-      FN:Bhupendra Mane
-      TEL:6474486229
-      END:VCARD
-    `;
-    const blob = new Blob([vCard], { type: 'text/vcard' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'contact.Bhupendra-Mane.vcf';
-    a.click();
-    URL.revokeObjectURL(url);
-  });
-</script>
+    function downloadVCard() {
+        // WhatsApp-friendly vCard 2.1 format
+        const vCard = [
+            'BEGIN:VCARD',
+            'VERSION:2.1',  // Use older version for better compatibility
+            'N:Mane;Bhupendra;;;',
+            'FN:Bhupendra Mane',
+            'TEL;CELL:+16474486229',  // Must include country code with +
+            'END:VCARD'
+        ].join('\r\n');  // CRLF line endings essential
+
+        // Create download link
+        const blob = new Blob([vCard], { 
+            type: 'text/x-vcard', 
+            endings: 'native' 
+        });
+        
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'Contact_Bhupendra_Mane.vcf';
+        link.click();
+        
+       
+    }
+    </script>
 
 <!-- Modal Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -209,7 +217,7 @@
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
     <h4 class="text-uppercase text-primary fw-bold mb-3" style="letter-spacing: 2px;">Our Services</h4>
-    <h1 class="display-4 mb-4 fw-bold" style="color: #333; text-transform: capitalize;">We Provide the Best Services</h1>
+    <h1 class="display-4 mb-4 fw-bold" style="color: #120d35; text-transform: capitalize;">We Provide the Best Services</h1>
     <p class="mb-0 text-muted" style="font-size: 1.1rem; line-height: 1.8;">
         We offer tailored insurance solutions to ensure financial security, peace of mind, and a future of stability and growth.
     </p>
@@ -228,7 +236,7 @@
                         <div class="service-item" onclick="toggleCallback(event)" 
                             style="min-height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
                             <div class="service-img">
-                                <img src="img/insurance-5238829_1280.jpg" 
+                                <img src="img/10477610.jpg" 
                                     class="img-fluid rounded-top w-100" 
                                     alt="Life Insurance" 
                                     style="width: 100%; height: auto; object-fit: contain;">
@@ -242,7 +250,7 @@
                                     <p><i class="fa fa-check text-primary me-3"></i> Enjoy a stress-free stay</p>
                                     <p><i class="fa fa-check text-primary me-3"></i> Benefits for your dependents</p>
                                     <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" 
-                                        href="javascript:void(0);" 
+                                        href="lifeinsurance.html" 
                                         onclick="toggleText(event, this)">Read more</a>
                                 </div>
                             </div>
@@ -267,7 +275,7 @@
                                     <p><i class="fa fa-check text-primary me-3"></i> Best Digital Experience</p>
                                     <p><i class="fa fa-check text-primary me-3"></i> Self-reliant Insurance Broker</p>
                                     <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" 
-                                        href="javascript:void(0);" 
+                                        href="critical.html" 
                                         onclick="toggleText(event, this)">Read more</a>
                                 </div>
                             </div>
@@ -292,8 +300,9 @@
                                     <p><i class="fa fa-check text-primary me-3"></i> Seamless Digital Experience</p>
                                     <p><i class="fa fa-check text-primary me-3"></i> Self-Driven Insurance Broker</p>
                                     <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" 
-                                        href="javascript:void(0);" 
-                                        onclick="toggleText(event, this)">Read more</a>
+                                     href="disability.html" 
+                                    onclick="toggleText(event, this)">Read more</a>
+
                                 </div>
                             </div>
                         </div>
@@ -305,10 +314,10 @@
             <div class="col-md-4 wow fadeInUp" data-wow-delay="0.8s">
                 <div class="service-item" onclick="toggleCallback(event)">
                     <div class="service-img" style="height: 300px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
-                        <img src="img/img-retirement.png" 
+                        <img src="img/9411385.jpg" 
                             class="img-fluid rounded-top w-100" 
                             alt="Estate Plan"
-                            style="max-width: 110%; max-height: 110%; object-fit: cover; transform: scale(1.1); transition: transform 0.3s ease-in-out;">
+                            style="width: 100%; height: auto; object-fit: contain;">
                     </div>
                     
                     <div class="service-content p-4">
@@ -318,7 +327,7 @@
                             <p class="mb-3 full-text" style="display: none;">A structured approach to retirement planning ensures long-term financial security by systematically saving, investing, and managing assets. It helps individuals build a stable income stream for retirement, covering essential expenses and maintaining their desired lifestyle without financial stress in later years.A structured approach to retirement planning ensures long-term financial security by systematically saving, investing, and managing assets. It helps individuals build a stable income stream for retirement, covering essential expenses and maintaining their desired lifestyle without financial stress in later years.</p>
                             <p><i class="fa fa-check text-primary me-3"></i> Benefits for dependents</p>
                             <p><i class="fa fa-check text-primary me-3"></i> Coverage for Medical Expenses</p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
+                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="retirement.html" onclick="toggleText(event, this)">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -331,7 +340,7 @@
                         <img src="img/4587.jpg" 
                             class="img-fluid rounded-top w-100" 
                             alt="Health & Dental Insurance"
-                            style="max-width: 110%; max-height: 110%; object-fit: cover; transform: scale(1.1); transition: transform 0.3s ease-in-out;">
+                            style="width: 100%; height: auto; object-fit: contain;">
                     </div>
                     <div class="service-content p-4">
                         <div class="service-content-inner">
@@ -340,36 +349,34 @@
                             <p class="mb-3 full-text" style="display: none;">Health and dental insurance covers prescription medications, essential treatments, and preventive care, ensuring access to quality medical and dental services. It helps reduce out-of-pocket expenses for doctor visits, dental check-ups, procedures, and treatments, promoting overall health, wellness, and financial security.</p>
                             <p><i class="fa fa-check text-primary me-3"></i> Seamless Digital Experience</p>
                             <p><i class="fa fa-check text-primary me-3"></i> Self-Driven Insurance Broker</p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
+                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="dental.html" onclick="toggleText(event, this)">Read more</a>
                         </div>
                     </div>
                 </div>
             </div>
-    
-            <!-- Sixth Service: Super Visa Insurance -->
-            <div class="col-md-4 wow fadeInUp" data-wow-delay="1.2s">
+     <!-- Sixth Service: Super Visa Insurance -->
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="1s">
                 <div class="service-item" onclick="toggleCallback(event)">
-                    <div class="service-img" 
-    style="height: 300px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
-    <img src="img/37213.jpg" 
-        class="img-fluid rounded-top w-100" 
-        alt="Super Visa Insurance"
-        style="max-width: 110%; max-height: 110%; object-fit: contain; transform: scale(1.1); transition: transform 0.3s ease-in-out;">
-</div>
-
-                    
+                    <div class="service-img" style="height: 300px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                        <img src="img/travel.jpg" 
+                            class="img-fluid rounded-top w-100" 
+                            alt="Health & Dental Insurance"
+                            style="width: 100%; height: auto; object-fit: contain;">
+                    </div>
                     <div class="service-content p-4">
                         <div class="service-content-inner">
                             <a href="#" class="d-inline-block h4 mb-4">Super Visa Insurance</a>
                             <p class="mb-3 short-text">Comprehensive insurance for long-term visitors.</p>
-                            <p class="mb-3 full-text" style="display: none;">Super Visa insurance ensures financial security and medical coverage for extended visits to Canada. It covers emergency healthcare, hospital stays, prescription medications, and doctor consultations, meeting government requirements while providing peace of mind for visitors and their sponsoring family members.</p>
+                            <p class="mb-3 full-text" style="display: none;">Super Visa insurance ensures financial security and medical coverage for extended visits to Canada. It covers emergency healthcare, hospital stays, prescription medications, and doctor consultations, meeting government requirements while providing peace of mind for visitors and their sponsoring family members</p>
                             <p><i class="fa fa-check text-primary me-3"></i> Seamless Digital Experience</p>
                             <p><i class="fa fa-check text-primary me-3"></i> Self-Driven Insurance Broker</p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="javascript:void(0);" onclick="toggleText(event, this)">Read more</a>
+                            <a class="btn btn-primary rounded-pill py-2 px-4 read-more-btn" href="supervisa.html" onclick="toggleText(event, this)">Read more</a>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Sixth Service: Super Visa Insurance -->
+           
     
         </div>
     </div>
@@ -391,7 +398,7 @@
         </div>
         <div class="modal-body">
           <div class="container pt-5">
-              <form action="https://api.web3forms.com/submit" method="POST">
+            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
                 <!-- Web3Forms Access Key -->
                 <input type="hidden" name="access_key" value="be233ad0-1ba1-47ee-be4d-c080233da15e">
             
@@ -409,6 +416,16 @@
                         <div class="form-floating">
                             <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
                             <label for="email">Your Email</label>
+                            <small id="emailError" style="color: red; display: none;">Invalid email</small>
+                        </div>
+                    </div>
+            
+                    <!-- Phone Field -->
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" required>
+                            <label for="phone">Your Phone</label>
+                            <small id="phoneError" style="color: red; display: none;">Invalid phone number</small>
                         </div>
                     </div>
             
@@ -432,6 +449,46 @@
                     <div class="col-12">
                         <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
                     </div>
+                </div>
+            </form>
+            
+            <script>
+                document.getElementById("contactForm").addEventListener("submit", function (event) {
+                    const email = document.getElementById("email").value;
+                    const phone = document.getElementById("phone").value;
+                    const emailError = document.getElementById("emailError");
+                    const phoneError = document.getElementById("phoneError");
+            
+                    // Email must contain at least one digit (0-9) and follow a valid format
+                    const emailPattern = /^(?=.*\d)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    // Phone must be a 10-digit number starting with 6-9
+                    const phonePattern = /^[6-9]\d{9}$/;
+            
+                    let isValid = true;
+            
+                    // Validate Email
+                    if (!emailPattern.test(email)) {
+                        emailError.style.display = "block";
+                        isValid = false;
+                    } else {
+                        emailError.style.display = "none";
+                    }
+            
+                    // Validate Phone Number
+                    if (!phonePattern.test(phone)) {
+                        phoneError.style.display = "block";
+                        isValid = false;
+                    } else {
+                        phoneError.style.display = "none";
+                    }
+            
+                    // Prevent Form Submission if Validation Fails
+                    if (!isValid) {
+                        event.preventDefault();
+                        alert("Invalid phone number or email. Please correct the errors.");
+                    }
+                });
+            </script>
                 </div>
             </form>
           </div>
@@ -640,13 +697,13 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Insurance Services</h4>
             
-
-                <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
-                <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
-                <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
+    
+                <a class="btn btn-link" href="lifeinsurance.html">Life Insurance (Life and Permanent)</a>
+                <a class="btn btn-link" href="critical.html">Critical illness Insurance</a>
+                <a class="btn btn-link" href="disability.html">Disability insurance</a>
+                <a class="btn btn-link" href="retirement.html">Eastate / Retirement Plan Strategy</a>
+                <a class="btn btn-link" href="dental.html">Health & Dental Insurance</a>
+                <a class="btn btn-link" href="supervisa.html">Super Visa and Visitor Insurance</a>
                   </div>
             
                   
@@ -654,10 +711,10 @@
                     <h4 class="text-white mb-4">Quick Links</h4>
                     <a class="btn btn-link" href="index.html">Home</a>
                     <a class="btn btn-link" href="about.html">About</a>
+                    <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
                     <a class="btn btn-link" href="Investment.html">Investment</a>
                     <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
-                    <a class="btn btn-link" href="terms.html">Terms & Condition</a>
+                    <a class="btn btn-link" href="terms.html">Terms & Conditions</a>
 
                 </div>
                 
