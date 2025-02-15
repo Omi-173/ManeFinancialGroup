@@ -70,7 +70,6 @@
     </div>
 </div>
 
-
 <!-- Navbar & Hero Start -->
 <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
     <div class="container">
@@ -86,10 +85,10 @@
                     <a href="index.html" class="nav-item nav-link ">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="Insurances.html" class="nav-item nav-link">Insurances</a>
-                    <a href="Investment.html" class="nav-item nav-link acitve">Investment</a>
+                    <a href="Investment.html" class="nav-item nav-link active">Investment</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <div class="nav-btn px-3 d-flex justify-content-center justify-content-lg-end">
-                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-1 px-3">
+                        <button onclick="downloadVCard()" class="btn btn-primary rounded-pill py-1 px-3">
                             <i class="fa fa-user-plus"></i> Add Contact
                         </button>
                     </div>
@@ -110,23 +109,31 @@
 
 <!-- Script for "Get a Quote" Button Functionality -->
 <script>
-  document.getElementById('getQuoteBtn').addEventListener('click', function() {
-    const vCard = `
-      BEGIN:VCARD
-      VERSION:3.0
-      FN:Bhupendra Mane
-      TEL:6474486229
-      END:VCARD
-    `;
-    const blob = new Blob([vCard], { type: 'text/vcard' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'contact.Bhupendra-Mane.vcf';
-    a.click();
-    URL.revokeObjectURL(url);
-  });
-</script>
+    function downloadVCard() {
+        // WhatsApp-friendly vCard 2.1 format
+        const vCard = [
+            'BEGIN:VCARD',
+            'VERSION:2.1',  // Use older version for better compatibility
+            'N:Mane;Bhupendra;;;',
+            'FN:Bhupendra Mane',
+            'TEL;CELL:+16474486229',  // Must include country code with +
+            'END:VCARD'
+        ].join('\r\n');  // CRLF line endings essential
+
+        // Create download link
+        const blob = new Blob([vCard], { 
+            type: 'text/x-vcard', 
+            endings: 'native' 
+        });
+        
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'Contact_Bhupendra_Mane.vcf';
+        link.click();
+        
+       
+    }
+    </script>
 
 <!-- Modal Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -193,7 +200,7 @@ _strk.push(function() {
                         Home
                     </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page" style="color: rgba(235, 234, 237, 0.7); font-weight: bold; opacity: 0.8;">
+                <li class="breadcrumb-item active" aria-current="page" style="color: rgba(24, 10, 52, 0.7); font-weight: bold; opacity: 0.8;">
                     Investment
                 </li>
             </ol>
@@ -357,7 +364,7 @@ _strk.push(function() {
               </div>
               <div class="modal-body">
                 <div class="container pt-5">
-                    <form action="https://api.web3forms.com/submit" method="POST">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
                         <!-- Web3Forms Access Key -->
                         <input type="hidden" name="access_key" value="be233ad0-1ba1-47ee-be4d-c080233da15e">
                     
@@ -375,6 +382,16 @@ _strk.push(function() {
                                 <div class="form-floating">
                                     <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
                                     <label for="email">Your Email</label>
+                                    <small id="emailError" style="color: red; display: none;">Invalid email</small>
+                                </div>
+                            </div>
+                    
+                            <!-- Phone Field -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" required>
+                                    <label for="phone">Your Phone</label>
+                                    <small id="phoneError" style="color: red; display: none;">Invalid phone number</small>
                                 </div>
                             </div>
                     
@@ -398,6 +415,46 @@ _strk.push(function() {
                             <div class="col-12">
                                 <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
                             </div>
+                        </div>
+                    </form>
+                    
+                    <script>
+                        document.getElementById("contactForm").addEventListener("submit", function (event) {
+                            const email = document.getElementById("email").value;
+                            const phone = document.getElementById("phone").value;
+                            const emailError = document.getElementById("emailError");
+                            const phoneError = document.getElementById("phoneError");
+                    
+                            // Email must contain at least one digit (0-9) and follow a valid format
+                            const emailPattern = /^(?=.*\d)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                            // Phone must be a 10-digit number starting with 6-9
+                            const phonePattern = /^[6-9]\d{9}$/;
+                    
+                            let isValid = true;
+                    
+                            // Validate Email
+                            if (!emailPattern.test(email)) {
+                                emailError.style.display = "block";
+                                isValid = false;
+                            } else {
+                                emailError.style.display = "none";
+                            }
+                    
+                            // Validate Phone Number
+                            if (!phonePattern.test(phone)) {
+                                phoneError.style.display = "block";
+                                isValid = false;
+                            } else {
+                                phoneError.style.display = "none";
+                            }
+                    
+                            // Prevent Form Submission if Validation Fails
+                            if (!isValid) {
+                                event.preventDefault();
+                                alert("Invalid phone number or email. Please correct the errors.");
+                            }
+                        });
+                    </script>
                         </div>
                     </form>
                 </div>
@@ -811,12 +868,12 @@ _strk.push(function() {
                 <h4 class="text-white mb-4">Insurance Services</h4>
         
 
-            <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
-            <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
-            <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
-            <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
-            <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
-            <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
+            <a class="btn btn-link" href="lifeinsurance.html">Life Insurance (Life and Permanent)</a>
+            <a class="btn btn-link" href="critical.html">Critical illness Insurance</a>
+            <a class="btn btn-link" href="disability.html">Disability insurance</a>
+            <a class="btn btn-link" href="retirement.html">Eastate / Retirement Plan Strategy</a>
+            <a class="btn btn-link" href="dental.html">Health & Dental Insurance</a>
+            <a class="btn btn-link" href="supervisa.html">Super Visa and Visitor Insurance</a>
               </div>
         
               
@@ -824,10 +881,10 @@ _strk.push(function() {
                 <h4 class="text-white mb-4">Quick Links</h4>
                 <a class="btn btn-link" href="index.html">Home</a>
                 <a class="btn btn-link" href="about.html">About</a>
+                <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
                 <a class="btn btn-link" href="Investment.html">Investment</a>
                 <a class="btn btn-link" href="contact.html">Contact Us</a>
-                <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
-                <a class="btn btn-link" href="terms.html">Terms & Condition</a>
+                <a class="btn btn-link" href="terms.html">Terms & Conditions</a>
 
             </div>
             
