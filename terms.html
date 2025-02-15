@@ -158,7 +158,7 @@
                     <a href="Investment.html" class="nav-item nav-link">Investment</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <div class="nav-btn px-3 d-flex justify-content-center justify-content-lg-end">
-                        <button id="getQuoteBtn" class="btn btn-primary rounded-pill py-1 px-3">
+                        <button onclick="downloadVCard()"  class="btn btn-primary rounded-pill py-1 px-3">
                             <i class="fa fa-user-plus"></i> Add Contact
                         </button>
                     </div>
@@ -180,23 +180,31 @@
 
 <!-- Script for "Get a Quote" Button Functionality -->
 <script>
-  document.getElementById('getQuoteBtn').addEventListener('click', function() {
-    const vCard = `
-      BEGIN:VCARD
-      VERSION:3.0
-      FN:Bhupendra Mane
-      TEL:6474486229
-      END:VCARD
-    `;
-    const blob = new Blob([vCard], { type: 'text/vcard' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'contact.Bhupendra-Mane.vcf';
-    a.click();
-    URL.revokeObjectURL(url);
-  });
-</script>
+    function downloadVCard() {
+        // WhatsApp-friendly vCard 2.1 format
+        const vCard = [
+            'BEGIN:VCARD',
+            'VERSION:2.1',  // Use older version for better compatibility
+            'N:Mane;Bhupendra;;;',
+            'FN:Bhupendra Mane',
+            'TEL;CELL:+16474486229',  // Must include country code with +
+            'END:VCARD'
+        ].join('\r\n');  // CRLF line endings essential
+
+        // Create download link
+        const blob = new Blob([vCard], { 
+            type: 'text/x-vcard', 
+            endings: 'native' 
+        });
+        
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'Contact_Bhupendra_Mane.vcf';
+        link.click();
+        
+   
+    }
+    </script>
 
 
 <!-- Page Header End -->
@@ -365,13 +373,13 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-4">Insurance Services</h4>
             
-
-                <a class="btn btn-link" href="Insurances.html">Life Insurance (Life and Permanent)</a>
-                <a class="btn btn-link" href="Insurances.html">Critical illness Insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Disability insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Eastate / Retirement Plan Strategy</a>
-                <a class="btn btn-link" href="Insurances.html">Health & Dental Insurance</a>
-                <a class="btn btn-link" href="Insurances.html">Super Visa and Visitor Insurance</a>
+    
+                <a class="btn btn-link" href="lifeinsurance.html">Life Insurance (Life and Permanent)</a>
+                <a class="btn btn-link" href="critical.html">Critical illness Insurance</a>
+                <a class="btn btn-link" href="disability.html">Disability insurance</a>
+                <a class="btn btn-link" href="retirement.html">Eastate / Retirement Plan Strategy</a>
+                <a class="btn btn-link" href="dental.html">Health & Dental Insurance</a>
+                <a class="btn btn-link" href="supervisa.html">Super Visa and Visitor Insurance</a>
                   </div>
             
                   
@@ -379,10 +387,10 @@
                     <h4 class="text-white mb-4">Quick Links</h4>
                     <a class="btn btn-link" href="index.html">Home</a>
                     <a class="btn btn-link" href="about.html">About</a>
+                    <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
                     <a class="btn btn-link" href="Investment.html">Investment</a>
                     <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="Insurances.html">Insurance Services</a>
-                    <a class="btn btn-link" href="terms.html">Terms & Condition</a>
+                    <a class="btn btn-link" href="terms.html">Terms & Conditions</a>
 
                 </div>
                 
