@@ -351,159 +351,98 @@
     <button class="slider-btn prev-btn">&#10094;</button>
 
     <!-- Slider Container -->
-    <div id="serviceSlider">
+    <div id="serviceSlider" style="display: flex; transition: transform 0.5s ease;">
         <a href="lifeinsurance.html" class="slide-card">
-            <img src="img/lifeei.jpeg" alt="img-li" 
-                 style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
-            <h3 style="color: #ffffff;">Life Insurance</h3>
+            <img src="img/lifeei.jpeg" alt="img-li">
+            <h3>Life Insurance</h3>
             <p>Secure your family's future with term & permanent life insurance.</p>
         </a>
-    
+
         <a href="critical.html" class="slide-card">
-            <img src="img/critical.png" alt="img-ci"
-                 style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
-            <h3 style="color: #ffffff;">Critical Illness</h3>
+            <img src="img/critical.png" alt="img-ci">
+            <h3>Critical Illness</h3>
             <p>Coverage for critical illnesses like heart attack and cancer.</p>
         </a>
-    
+
         <a href="disability.html" class="slide-card">
-            <img src="img/disability.png" alt="img-disability"
-                 style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
-            <h3 style="color: #ffffff;">Disability Insurance</h3>
+            <img src="img/disability.png" alt="img-disability">
+            <h3>Disability Insurance</h3>
             <p>Protect your income in case of unexpected illness or injury.</p>
         </a>
-    
+
         <a href="retirement.html" class="slide-card">
-            <img src="img/retire.jpg" alt="img-retire"
-                 style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
-            <h3 style="color: #ffffff;">Retirement Plan</h3>
+            <img src="img/retire.jpg" alt="img-retire">
+            <h3>Retirement Plan</h3>
             <p>Secure savings and investments for a stable retirement future.</p>
         </a>
-    
+
         <a href="dental.html" class="slide-card">
-            <img src="img/h&d.png" alt="img-hd"
-                 style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
-            <h3 style="color: #ffffff;">Health & Dental</h3>
+            <img src="img/h&d.png" alt="img-hd">
+            <h3>Health & Dental</h3>
             <p>Ensuring coverage for prescriptions & dental care.</p>
         </a>
-    
+
         <a href="supervisa.html" class="slide-card">
-            <img src="img/3129535.jpg" alt="img-sv"
-                 style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
-            <h3 style="color: #ffffff;">Super Visa Insurance</h3>
+            <img src="img/3129535.jpg" alt="img-sv">
+            <h3>Super Visa Insurance</h3>
             <p>Comprehensive insurance for long-term visitors to Canada.</p>
         </a>
     </div>
-    
-    <!-- Inline CSS for Responsive Image Sizes -->
-    <style>
-        @media (max-width: 768px) {
-            #serviceSlider img {
-                height: 200px !important;
-            }
-        }
-    
-        @media (max-width: 480px) {
-            #serviceSlider img {
-                height: 150px !important;
-            }
-        }
-    </style>
-    
 
     <!-- Next Button -->
     <button class="slider-btn next-btn">&#10095;</button>
 </div>
 
-<!-- CSS for Styling -->
+<!-- Slider CSS Fix -->
 <style>
-
-p {
-    font-size: 18px;
-    color: #ffffff;
-    text-align: center;
-    margin-top: 20px;
-    line-height: 1.6;
-    transition: color 0.3s ease;
-}
-
-p:hover {
-    color:#d3d3d3; /* Light Blue hover for contrast */
-}
-
     #serviceSlider {
         display: flex;
-        gap: 20px;
-        transition: transform 0.5s ease-in-out;
         overflow-x: auto;
         scroll-behavior: smooth;
-        padding: 20px;
-        scrollbar-width: none;
-    }
-
-    #serviceSlider::-webkit-scrollbar {
-        display: none;
     }
 
     .slide-card {
-        min-width: 260px;
-        flex: 0 0 auto;
-        padding: 20px;
-        border-radius: 20px;
+        flex: 0 0 25%;
+        box-sizing: border-box;
+        padding: 10px;
         text-align: center;
-        background: linear-gradient(135deg, #120b5e,#120a5f);
-        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
-        color: #ffffff;
-        text-decoration: none;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: #0c075b;
+        border-radius: 15px;
+        margin: 0 10px;
     }
 
-    .slide-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .slide-img {
+    .slide-card img {
         width: 100%;
-        height: 180px;
+        height: auto;
+        max-height: 250px;
         object-fit: contain;
         border-radius: 15px;
         margin-bottom: 15px;
     }
 
     .slide-card h3 {
-        font-size: 1.4rem;
+        color: #ffffff;
+        font-size: 1.2rem;
         margin-bottom: 10px;
-        font-weight: 600;
     }
 
     .slide-card p {
-        font-size: 0.95rem;
-        line-height: 1.5;
+        color: #dddddd;
+        font-size: 0.9rem;
     }
 
     .slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #ffffff;
-    border: none;
-    padding: 12px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 22px;
-    z-index: 10;
-    transition: background-color 0.3s ease;
-}
-
-.slider-btn:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-
-    .slider-btn:hover {
-        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 24px;
+        border-radius: 50%;
+        z-index: 1;
     }
 
     .prev-btn {
@@ -514,77 +453,39 @@ p:hover {
         right: 10px;
     }
 
+    /* Responsive Fixes */
     @media (max-width: 768px) {
-        #serviceSlider {
-            gap: 15px;
-        }
-
         .slide-card {
-            min-width: 200px;
+            flex: 0 0 45%;
         }
+        .slide-card img {
+            max-height: 200px;
+        }
+    }
 
-        .slide-img {
-            height: 150px;
+    @media (max-width: 480px) {
+        .slide-card {
+            flex: 0 0 90%;
+        }
+        .slide-card img {
+            max-height: 150px;
         }
     }
 </style>
 
-<!-- JavaScript for Slider Functionality -->
+<!-- Slider Functionality -->
 <script>
     const slider = document.getElementById('serviceSlider');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
 
-    let isDown = false, startX, scrollLeft;
-    const slideWidth = 300;
-
-    // Drag Scroll (Desktop)
-    slider.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener('mouseleave', () => isDown = false);
-    slider.addEventListener('mouseup', () => isDown = false);
-    slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        slider.scrollLeft = scrollLeft - walk;
-    });
-
-    // Touch Scroll (Mobile)
-    slider.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener('touchmove', (e) => {
-        const x = e.touches[0].pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        slider.scrollLeft = scrollLeft - walk;
-    });
-
-    // Button Scroll
-    prevBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
-    });
-
     nextBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+        slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
     });
 
-    // Show/Hide Buttons
-    function checkButtons() {
-        prevBtn.style.display = slider.scrollLeft > 0 ? 'block' : 'none';
-        nextBtn.style.display = slider.scrollLeft + slider.clientWidth < slider.scrollWidth ? 'block' : 'none';
-    }
-
-    slider.addEventListener('scroll', checkButtons);
-    window.addEventListener('resize', checkButtons);
-    document.addEventListener("DOMContentLoaded", checkButtons);
+    prevBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
+    });
 </script>
 
 
