@@ -345,7 +345,7 @@
 </div>
 
 <!-- Fixed Container for Slider -->
-<div style="position: relative; width: 90%; max-width: 1500px; margin: 0 auto; overflow: hidden;">
+<div style="position: relative; width: 100%; max-width: 1700px; margin: 0 auto; overflow: hidden;">
 
     <!-- Previous Button -->
     <button class="slider-btn prev-btn">&#10094;</button>
@@ -358,43 +358,58 @@
             <h3 style="color: #ffffff;">Life Insurance</h3>
             <p>Secure your family's future with term & permanent life insurance.</p>
         </a>
-        
-
+    
         <a href="critical.html" class="slide-card">
-            <img src="img/critical.png" alt="img-ci" class="slide-img"
-            style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+            <img src="img/critical.png" alt="img-ci"
+                 style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
             <h3 style="color: #ffffff;">Critical Illness</h3>
             <p>Coverage for critical illnesses like heart attack and cancer.</p>
         </a>
-
+    
         <a href="disability.html" class="slide-card">
-            <img src="img/disability.png" alt="img-disability" class="slide-img"
-            style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+            <img src="img/disability.png" alt="img-disability"
+                 style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
             <h3 style="color: #ffffff;">Disability Insurance</h3>
             <p>Protect your income in case of unexpected illness or injury.</p>
         </a>
-
+    
         <a href="retirement.html" class="slide-card">
-            <img src="img/retire.jpg" alt="img-retire" class="slide-img"
-            style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+            <img src="img/retire.jpg" alt="img-retire"
+                 style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
             <h3 style="color: #ffffff;">Retirement Plan</h3>
             <p>Secure savings and investments for a stable retirement future.</p>
         </a>
-
+    
         <a href="dental.html" class="slide-card">
-            <img src="img/h&d.png" alt="img-hd" class="slide-img"
-            style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+            <img src="img/h&d.png" alt="img-hd"
+                 style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
             <h3 style="color: #ffffff;">Health & Dental</h3>
             <p>Ensuring coverage for prescriptions & dental care.</p>
         </a>
-
+    
         <a href="supervisa.html" class="slide-card">
-            <img src="img/3129535.jpg" alt="img-sv" class="slide-img"
-            style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+            <img src="img/3129535.jpg" alt="img-sv"
+                 style="width: 90%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
             <h3 style="color: #ffffff;">Super Visa Insurance</h3>
             <p>Comprehensive insurance for long-term visitors to Canada.</p>
         </a>
     </div>
+    
+    <!-- Inline CSS for Responsive Image Sizes -->
+    <style>
+        @media (max-width: 768px) {
+            #serviceSlider img {
+                height: 200px !important;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            #serviceSlider img {
+                height: 150px !important;
+            }
+        }
+    </style>
+    
 
     <!-- Next Button -->
     <button class="slider-btn next-btn">&#10095;</button>
