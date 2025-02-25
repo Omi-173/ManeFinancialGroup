@@ -507,29 +507,6 @@
           }
       }
   
-      function toggleText(event, btn) {
-          event.stopPropagation(); // Prevent triggering showFullContent()
-          let content = btn.closest('.service-content-inner').querySelector('.full-text');
-  
-          if (content.style.display === "none") {
-              content.style.display = "block";
-              setTimeout(() => { content.style.opacity = "1"; }, 50);
-              btn.textContent = "Read less";
-          } else {
-              content.style.opacity = "0";
-              setTimeout(() => { content.style.display = "none"; }, 300);
-              btn.textContent = "Read more";
-          }
-      }
-  
-      function showFullContent(event, element) {
-          if (event.target.classList.contains("read-more-btn")) return; // Ignore clicks on Read More button
-  
-          let content = element.querySelector('.full-text');
-  
-          content.style.display = "block";
-          setTimeout(() => { content.style.opacity = "1"; }, 50);
-      }
   </script>
 
 
