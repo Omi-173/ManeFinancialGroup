@@ -749,60 +749,80 @@
         </p>
     </div>
 
-    <!-- Scroller Container -->
-    <div class="scroller-container">
-        <div class="scroller">
-            <div class="scroller-content">
-                <img src="img/beneva-logo.png" alt="Beneva">
-                <img src="img/CUMIS-logo.png" alt="CUMIS">
-                <img src="img/edge-benefits.png" alt="Edge Benefits">
-                <img src="img/serenia-logo.png" alt="Serenia">
-                <img src="img/supplier1.gif" alt="Supplier 1">
-                <img src="img/supplier3.png" alt="Supplier 3">
-                <img src="img/supplier4.jpg" alt="Supplier 4">
-                <img src="img/supplier5.png" alt="Supplier 5">
-                <img src="img/supplier6.png" alt="Supplier 6">
-                <img src="img/supplier7.gif" alt="Supplier 7">
-                <img src="img/supplier9.gif" alt="Supplier 9">
-                <img src="img/supplier10.gif" alt="Supplier 10">
-                <img src="img/supplier11.gif" alt="Supplier 11">
-                <img src="img/supplier12.png" alt="Supplier 12">
-                <img src="img/supplier15 (1).png" alt="Supplier 15">
-            </div>
+    <!-- Scroller Wrapper -->
+    <div class="scroller-wrapper">
 
-            <!-- Duplicate images for seamless looping -->
-            <div class="scroller-content">
-                <img src="img/beneva-logo.png" alt="Beneva">
-                <img src="img/CUMIS-logo.png" alt="CUMIS">
-                <img src="img/edge-benefits.png" alt="Edge Benefits">
-                <img src="img/serenia-logo.png" alt="Serenia">
-                <img src="img/supplier1.gif" alt="Supplier 1">
-                <img src="img/supplier3.png" alt="Supplier 3">
-                <img src="img/supplier4.jpg" alt="Supplier 4">
-                <img src="img/supplier5.png" alt="Supplier 5">
-                <img src="img/supplier6.png" alt="Supplier 6">
-                <img src="img/supplier7.gif" alt="Supplier 7">
-                <img src="img/supplier9.gif" alt="Supplier 9">
-                <img src="img/supplier10.gif" alt="Supplier 10">
-                <img src="img/supplier11.gif" alt="Supplier 11">
-                <img src="img/supplier12.png" alt="Supplier 12">
-                <img src="img/supplier15 (1).png" alt="Supplier 15">
+        <!-- First Row - Moves Left -->
+        <div class="scroller-container">
+            <div class="scroller scroller-left">
+                <div class="scroller-content">
+                    <img src="img/beneva-logo.png" alt="Beneva">
+                    <img src="img/CUMIS-logo.png" alt="CUMIS">
+                    <img src="img/edge-benefits.png" alt="Edge Benefits">
+                    <img src="img/serenia-logo.png" alt="Serenia">
+                    <img src="img/supplier1.gif" alt="Supplier 1">
+                    <img src="img/supplier3.png" alt="Supplier 3">
+                    <img src="img/supplier4.jpg" alt="Supplier 4">
+                    <img src="img/supplier5.png" alt="Supplier 5">
+                </div>
+                <div class="scroller-content">
+                    <img src="img/beneva-logo.png" alt="Beneva">
+                    <img src="img/CUMIS-logo.png" alt="CUMIS">
+                    <img src="img/edge-benefits.png" alt="Edge Benefits">
+                    <img src="img/serenia-logo.png" alt="Serenia">
+                    <img src="img/supplier1.gif" alt="Supplier 1">
+                    <img src="img/supplier3.png" alt="Supplier 3">
+                    <img src="img/supplier4.jpg" alt="Supplier 4">
+                    <img src="img/supplier5.png" alt="Supplier 5">
+                </div>
             </div>
         </div>
+
+        <!-- Second Row - Moves Right -->
+        <div class="scroller-container">
+            <div class="scroller scroller-right">
+                <div class="scroller-content">
+                    <img src="img/supplier6.png" alt="Supplier 6">
+                    <img src="img/supplier7.gif" alt="Supplier 7">
+                    <img src="img/supplier9.gif" alt="Supplier 9">
+                    <img src="img/supplier10.gif" alt="Supplier 10">
+                    <img src="img/supplier11.gif" alt="Supplier 11">
+                    <img src="img/supplier12.png" alt="Supplier 12">
+                    <img src="img/supplier15 (1).png" alt="Supplier 15">
+                </div>
+                <div class="scroller-content">
+                    <img src="img/supplier6.png" alt="Supplier 6">
+                    <img src="img/supplier7.gif" alt="Supplier 7">
+                    <img src="img/supplier9.gif" alt="Supplier 9">
+                    <img src="img/supplier10.gif" alt="Supplier 10">
+                    <img src="img/supplier11.gif" alt="Supplier 11">
+                    <img src="img/supplier12.png" alt="Supplier 12">
+                    <img src="img/supplier15 (1).png" alt="Supplier 15">
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>
 
 <!-- CSS -->
 <style>
+    .scroller-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 100%;
+    }
+
     .scroller-container {
         width: 100%;
         overflow: hidden;
         background: white;
-        padding: 20px;
-        border-radius: 15px;
+        padding: 15px;
+        border-radius: 10px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        margin: 10px 0;
         white-space: nowrap;
         position: relative;
     }
@@ -810,7 +830,6 @@
     .scroller {
         display: flex;
         width: max-content;
-        animation: scroll 20s linear infinite;
     }
 
     .scroller-content {
@@ -829,12 +848,31 @@
         transform: scale(1.1);
     }
 
-    @keyframes scroll {
+    /* First Row - Moves Left */
+    .scroller-left {
+        animation: scroll-left 20s linear infinite;
+    }
+
+    @keyframes scroll-left {
         from {
             transform: translateX(0);
         }
         to {
             transform: translateX(-50%);
+        }
+    }
+
+    /* Second Row - Moves Right */
+    .scroller-right {
+        animation: scroll-right 20s linear infinite;
+    }
+
+    @keyframes scroll-right {
+        from {
+            transform: translateX(-50%);
+        }
+        to {
+            transform: translateX(0);
         }
     }
 
@@ -845,6 +883,7 @@
         }
     }
 </style>
+
 
 
     
